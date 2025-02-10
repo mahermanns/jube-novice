@@ -1,12 +1,13 @@
 ---
-title: "Using Markdown"
+title: "Introduction"
 teaching: 10
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- How do I automate the different steps in building and running HPC
+  applications?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -19,26 +20,12 @@ exercises: 2
 
 ## Introduction
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
-
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
-
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+This paragraph is still a placeholder.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+The key goal of this episode is to motivate participants to
+automate their HPC workflow as much as possible.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -92,23 +79,15 @@ e.g. by providing the answer to a commonly-asked question.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::: keypoints
 
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
-
-::::::::::::::::::::::::::::::::::::: keypoints 
-
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- Successfully building an application can become cumbersome quickly as
+  application complexity rises.
+- Use of a build system can automate many of the tasks comprised
+- Generating build system files can further automate adaptation to different
+  computers and/or versions of dependencies.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[r-markdown]: https://rmarkdown.rstudio.com/
+
+
