@@ -10,13 +10,28 @@
     <loc>https://carpentries.github.io/workbench-template-md/03-basic-tags.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/03-benchmark-example.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/04-basic-tags.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/04-nas-benchmark-example.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/05-benchmark-initial-step.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/05-benchmark-setup.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/06-benchmark-build.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/06-building-bt.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/07-benchmark-run.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/07-running-bt.html</loc>
@@ -61,13 +76,28 @@
     <loc>https://carpentries.github.io/workbench-template-md/instructor/03-basic-tags.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/03-benchmark-example.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/04-basic-tags.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/04-nas-benchmark-example.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/05-benchmark-initial-step.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/05-benchmark-setup.html</loc>
   </url>
   <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/06-benchmark-build.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/06-building-bt.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries.github.io/workbench-template-md/instructor/07-benchmark-run.html</loc>
   </url>
   <url>
     <loc>https://carpentries.github.io/workbench-template-md/instructor/07-running-bt.html</loc>
