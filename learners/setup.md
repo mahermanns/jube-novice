@@ -2,19 +2,32 @@
 title: Setup
 ---
 
-FIXME: Setup instructions live in this document. Please specify the tools and
-the data sets the Learner needs to have installed.
+This lessons focuses on execution of workflows on HPC systems, including
+interaction with its job scheduler. You will therefore
+
+1. have access to a system with a job scheduler (e.g., SLURM), and
+2. setup the JUBE software environment on that system.
 
 ## Data Sets
 
-<!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
--->
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
+This lesson uses the [GROMACS software](https://www.gromacs.org/) as an example 
+GROMACS is a free and open-source software suite for high-performance molecular dynamics and output analysis.
+
+Eventually, downloading GROMACS will be part of the overall HPC workflow, but
+you can download the 2024.5 version of GROMACS from the [download page of GROMACS](https://manual.gromacs.org/2024.5/download.html).
+
+
 
 ## Software Setup
+
+The `environment.yaml` file describes a Conda virtual environment that includes R, pandoc, and termplotlib: the tools you'll need to develop and run this lesson, as well as some depencencies. To prepare the environment, install Miniconda following the official instructions. Then open a shell application and create a new environment:
+
+```sh
+user@cluster:~$ cd path/to/local/jube-novice
+user@cluster:jube-novice$ conda env create -f environment.yaml
+```
+
+N.B.: the environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
 
 ::::::::::::::::::::::::::::::::::::::: discussion
 

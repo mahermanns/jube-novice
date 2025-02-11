@@ -1,72 +1,59 @@
-# The Carpentries Workbench Template Markdown Lesson
+# Reproducible HPC workflows using JUBE
 
-This lesson is a template lesson that uses [The Carpentries Workbench][workbench]. 
+When applying for computing time on HPC systems, applicants are often asked to provide measurements on different scales of parallelism.  Furthermore, preparing performance measurements often involves an application-specific workflow as well as platform-specific configurations.  The objective of this lesson is to enable users of HPC systems to run performance measurements with minimal intervention with high reproducibility, using the [Jülich Benchemarking Environment (JUBE)](https://apps.fz-juelich.de/jsc/jube/docu/index.html) [1].
 
-## Note about lesson life cycle stage
-Although the `config.yaml` states the life cycle stage as pre-alpha, **the template is stable and ready to use**. The life cycle stage is preset to `"pre-alpha"` as this setting is appropriate for new lessons initialised using the template.
+## Contributing
 
-## Create a new repository from this template
+This lesson was created as material for HPC.NRW workshops on this topics and are released under [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
-To use this template to start a new lesson repository, 
-make sure you're logged into Github.   
-Visit https://github.com/carpentries/workbench-template-md/generate
-and follow the instructions.
-Checking the 'Include all branches' option will save some time waiting for the first website build
-when your new repository is initialised.
+Please check the file `CONTRIBUTING.md` for details on how to contribute to this lesson.
 
-If you have any questions, contact [@tobyhodges](https://github.com/tobyhodges)
+### Building Locally
 
-## Configure a new lesson
+This lesson is using the [Carpentries Workbench](https://carpentries.github.io/sandpaper-docs/). If you edit the lesson, it is important to verify that the changes are rendered properly in the online version. The best way to do this is to build the lesson locally. You will need an R environment to do this: as described in the {sandpaper} docs, the environment can be either your terminal or RStudio.
 
-Follow the steps below to
-complete the initial configuration of a new lesson repository built from this template:
+#### Setup
 
-1. **Make sure GitHub Pages is activated:**
-   navigate to _Settings_,
-   select _Pages_ from the left sidebar,
-   and make sure that `gh-pages` is selected as the branch to build from.
-   If no `gh-pages` branch is available, check _Actions_ to see if the first
-   website build workflows are still running.
-   The branch should become available when those have completed.
-1. **Adjust the `config.yaml` file:**
-   this file contains global parameters for your lesson site.
-   Individual fields within the file are documented with comments (beginning with `#`)
-   At minimum, you should adjust all the fields marked 'FIXME':
-   - `title`
-   - `created`
-   - `keywords`
-   - `life_cycle` (the default, _pre-alpha_, is the appropriate for brand new lessons)
-   - `contact`
-1. **Annotate the repository** with site URL and topic tags:
-   navigate back to the repository landing page and
-   click on the gear wheel/cog icon (similar to ⚙️) 
-   at the top-right of the _About_ box.
-   Check the "Use your GitHub Pages website" option,
-   and [add some keywords and other annotations to describe your lesson](https://cdh.carpentries.org/the-carpentries-incubator.html#topic-tags)
-   in the _Topics_ field.
-   At minimum, these should include:
-   - `lesson`
-   - the life cycle of the lesson (e.g. `pre-alpha`)
-   - the human language the lesson is written in (e.g. `deutsch`)
-1. **Adjust the 
-   `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, and `LICENSE.md` files**
-   as appropriate for your project.
-   -  `CODE_OF_CONDUCT.md`: 
-      if you are using this template for a project outside The Carpentries,
-      you should adjust this file to describe 
-      who should be contacted with Code of Conduct reports,
-      and how those reports will be handled.
-   -  `CONTRIBUTING.md`:
-      depending on the current state and maturity of your project,
-      the contents of the template Contributing Guide may not be appropriate.
-      You should adjust the file to help guide contributors on how best
-      to get involved and make an impact on your lesson.
-   -  `LICENSE.md`:
-      in line with the terms of the CC-BY license,
-      you should ensure that the copyright information 
-      provided in the license file is accurate for your project.
-1. **Update this README with 
-   [relevant information about your lesson](https://carpentries.github.io/lesson-development-training/collaborating-newcomers.html#readme)**
-   and delete this section.
+The `environment.yaml` file describes a Conda virtual environment that includes R, pandoc, and termplotlib: the tools you'll need to develop and run this lesson, as well as some depencencies. To prepare the environment, install Miniconda following the official instructions. Then open a shell application and create a new environment:
 
-[workbench]: https://carpentries.github.io/sandpaper-docs/
+```sh
+user@cluster:~$ cd path/to/local/jube-novice
+user@cluster:jube-novice$ conda env create -f environment.yaml
+```
+
+N.B.: the environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
+
+#### {sandpaper}
+
+{sandpaper} is the engine behind The Carpentries Workbench lesson layout and static website generator. It is an R package, and has not yet been installed. Paraphrasing the installation instructions, start R or radian, then install:
+
+```sh
+user@cluster:hpc-workflows$ R --no-restore --no-save
+```
+```r
+install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"),
+ repos = c("https://carpentries.r-universe.dev/", getOption("repos")))
+```
+
+Now you can render the site! From your R session,
+
+```r
+library("sandpaper")
+sandpaper::serve()
+```
+
+This should output something like the following:
+
+```
+Output created: jube-novice/site/docs/index.html
+To stop the server, run servr::daemon_stop(1) or restart your R session
+Serving the directory jube-novice/site/docs at http://127.0.0.1:4321
+```
+
+Click on the link to `http://127.0.0.1:4321` or copy and paste it in your browser. You should see any changes you've made to the lesson on the corresponding page(s). If it looks right, you're set to proceed!
+
+## References
+
+[1] JUBE Documentation: <https://apps.fz-juelich.de/jsc/jube/docu/index.html>
+
+

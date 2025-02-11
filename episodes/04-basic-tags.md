@@ -1,29 +1,25 @@
 ---
-title: "Building a benchmark"
+title: "Influencing parameters with tags"
 teaching: 10
 exercises: 2
 ---
 
-
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How can you automate the build process?
+- How can a workflow be influenced from the command line?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Use a basic configuration to automate the build process of the NAS Parallel
-  Benchmark Suite.
+- Use tags to influence configuration values.
+- Run different workflows with the same configuration.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
-- Define the build of a benchmark application as a separate step.
+- Use tags to include or exclude specific parts of a workflow.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
 

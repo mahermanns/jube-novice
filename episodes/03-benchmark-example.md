@@ -1,25 +1,25 @@
 ---
-title: "Basic configuration"
+title: "An example application"
 teaching: 10
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How can a workflow be influenced from the command line?
+- What types of HPC workflows can be automated using JUBE?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Use tags to influence configuration values.
-- Run different workflows with the same configuration.
+- Familiarize yourself 
+- Create the benchmarks systems description automatically.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
-- Use tags to include or exclude specific parts of a workflow.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
 

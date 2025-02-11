@@ -1,5 +1,5 @@
 ---
-title: "Running the BT application"
+title: "Running an application"
 teaching: 10
 exercises: 2
 ---
