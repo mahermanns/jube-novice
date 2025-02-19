@@ -3,7 +3,7 @@ title: Setup
 ---
 
 This lessons focuses on execution of workflows on HPC systems, including
-interaction with its job scheduler. You will therefore
+interaction with its job scheduler. You will therefore have to
 
 1. have access to a system with a job scheduler (e.g., SLURM), and
 2. setup the JUBE software environment on that system.

@@ -59,17 +59,17 @@ contact: 'tutorials@hpc.nrw'
 
 # Order of episodes in your lesson
 episodes:
-  - 01-introduction.md
-  - 02-workflow.md
-  - 03-benchmark-example.md
-  - 04-basic-tags.md
-  - 05-benchmark-initial-step.md
-  - 06-benchmark-build.md
-  - 07-benchmark-run.md
-  - 08-gathering-output.md
-  - 09-result-tables.md
-  - 10-stage-iterations.md
-  - 11-outlook.md
+  - introduction.md
+  - benchmark_example.md
+  - jube_workflow.md
+  - basic_tags.md
+  - initial_step.md
+  - build_step.md
+  - run_step.md
+  - gathering_output.md
+  - result_tables.md
+  - stage_iterations.md
+  - outlook.md
 
 # Information for Learners
 learners: 
