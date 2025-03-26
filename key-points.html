@@ -438,7 +438,16 @@ measurements.</li>
 to avoid steps running in parallel to overwrite or unintentional reuse
 of intermediate data.</li>
 </ul></section><section id="benchmark_example"><h2 class="section-heading"><a href="benchmark_example.html">An example application</a></h2>
-<hr class="half-width"></section><section id="jube_workflow"><h2 class="section-heading"><a href="jube_workflow.html">Working with JUBE</a></h2>
+<hr class="half-width">
+<ul>
+<li>HPC applications may need to be downloaded and built before use</li>
+<li>HPC applications may have additional dependencies.</li>
+<li>HPC applications often do not have an automatic dependency
+management system (like <code>pip</code> or <code>conda</code>).</li>
+<li>HPC applications may need serial preparation of inputs</li>
+<li>steps of individual HPC workflows may occur at different levels of
+parallelism</li>
+</ul></section><section id="jube_workflow"><h2 class="section-heading"><a href="jube_workflow.html">Working with JUBE</a></h2>
 <hr class="half-width">
 <ul>
 <li>A JUBE workflow is started with <code>jube run</code>

@@ -206,12 +206,19 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         1. Introduction
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#preparing-your-workspace">Preparing your workspace</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -414,10 +421,25 @@ high reproducibility, using the <a href="https://apps.fz-juelich.de/jsc/jube/doc
 Benchemarking Environment (JUBE)</a> [1].</p>
 <p>It is important to understand that JUBE, while emerged as a
 benchmarking system, actually is a workflow management system, where
-application and system benchmarking isone of its applications. Further
+application and system benchmarking is one of its applications. Further
 use cases may include running multiple HPC workflows as integration
 tests during application development and defining reproducible execution
 workflows for data generation for publications.</p>
+
+<div id="caution1" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Caution</h3>
+<div class="callout-content">
+<p>JUBE is an automation tool. That means, it <strong>does not</strong>
+intrinsicly make your workflows reproducible, but it <strong>lets you
+automate</strong> all actions that can make your workflow
+reproducible.</p>
+</div>
+</div>
+</div>
 <p>The key benefits of using JUBE are:</p>
 <ul><li>It enables systematic and reproducible benchmarks.</li>
 <li>It provides a flexible, script-based framework to set up tasks and
@@ -432,21 +454,7 @@ environments.</li>
 <li>It enables efficient parameter space exploration.</li>
 <li>It allows to easily retrieve strings from runtime output and create
 tables and CSV files.</li>
-</ul><div id="caution1" class="callout caution">
-<div class="callout-square">
-<i class="callout-icon" data-feather="alert-triangle"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Caution</h3>
-<div class="callout-content">
-<p>JUBE is an automation tool. That means, it <strong>does not</strong>
-intrinsicly make your workflows reproducible, but it <strong>lets you
-automate</strong> all actions that can make your workflow
-reproducible.</p>
-</div>
-</div>
-</div>
-<div id="discussion1" class="callout discussion">
+</ul><div id="discussion1" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
@@ -484,6 +492,33 @@ Python 2.x. The user can write configurations in XML or YAML syntax. It
 is freely <a href="https://www.fz-juelich.de/en/ias/jsc/services/user-support/software-tools/jube/download" class="external-link">available
 for download</a> and also available via HPC software package managers,
 such as <a href="https://spack.io/" class="external-link">Spack</a> and <a href="https://easybuild.io/" class="external-link">EasyBuild</a>.</p>
+<section><h2 class="section-heading" id="preparing-your-workspace">Preparing your workspace<a class="anchor" aria-label="anchor" href="#preparing-your-workspace"></a></h2>
+<hr class="half-width"><p>In preparation of following exercises, we will create a specific
+workspace for our lesson workflow.</p>
+<div id="creating-a-workspace-for-the-lessons-exercises" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="creating-a-workspace-for-the-lessons-exercises" class="callout-inner">
+<h3 class="callout-title">Creating a workspace for the lesson’s exercises</h3>
+<div class="callout-content">
+<p>It is best to start with an empty directory. You are free to choose
+any name, but for the sake of this lesson, we will use
+<code>jube-workspace/</code>.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> mkdir jube-workspace/</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd jube-workspace/</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>jube-workspace$</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -506,10 +541,7 @@ of intermediate data.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="benchmark_example.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
