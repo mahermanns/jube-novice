@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 teaching: 10
-exercises: 2
+exercises: 10
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -32,22 +32,8 @@ When applying for computing time on HPC systems, applicants are often asked to p
 Furthermore, preparing performance measurements often involves an application-specific workflow as well as platform-specific configurations.
 The objective of this lesson is to enable users of HPC systems to run performance measurements with minimal intervention with high reproducibility, using the [Jülich Benchemarking Environment (JUBE)](https://apps.fz-juelich.de/jsc/jube/docu/index.html) [1].
 
-It is important to understand that JUBE, while emerged as a benchmarking system, actually is a workflow management system, where application and system benchmarking isone of its applications.
+It is important to understand that JUBE, while emerged as a benchmarking system, actually is a workflow management system, where application and system benchmarking is one of its applications.
 Further use cases may include running multiple HPC workflows as integration tests during application development and defining reproducible execution workflows for data generation for publications.
-
-The key benefits of using JUBE are:
-
-- It enables systematic and reproducible benchmarks.
-- It provides a flexible, script-based framework to set up tasks and control
-  various aspects of the execution.
-- It allows for custom workflows that can adapt to different HPC platforms.
-- It provides a powerful tagging systems to influence execution of a given
-  workflow.
-- It automatically isolates your workflow steps so concurrent tasks don't
-  overwrite or re-use files in unintentionally shared execution environments.
-- It enables efficient parameter space exploration.
-- It allows to easily retrieve strings from runtime output and create tables
-  and CSV files.
 
 ::: instructor
 It is important for the learners to understand that JUBE itself **does know what
@@ -64,6 +50,20 @@ your workflows reproducible, but it **lets you automate** all actions that
 can make your workflow reproducible.
 
 :::
+
+The key benefits of using JUBE are:
+
+- It enables systematic and reproducible benchmarks.
+- It provides a flexible, script-based framework to set up tasks and control
+  various aspects of the execution.
+- It allows for custom workflows that can adapt to different HPC platforms.
+- It provides a powerful tagging systems to influence execution of a given
+  workflow.
+- It automatically isolates your workflow steps so concurrent tasks don't
+  overwrite or re-use files in unintentionally shared execution environments.
+- It enables efficient parameter space exploration.
+- It allows to easily retrieve strings from runtime output and create tables
+  and CSV files.
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
@@ -92,6 +92,28 @@ It is written in Python 3, but is backwards-compatible to Python 2.x.
 The user can write configurations in XML or YAML syntax.
 It is freely [available for download](https://www.fz-juelich.de/en/ias/jsc/services/user-support/software-tools/jube/download) and also available via HPC software package managers, such as [Spack](https://spack.io/) and [EasyBuild](https://easybuild.io/).
 
+
+## Preparing your workspace
+
+In preparation of following exercises, we will create a specific workspace for our lesson workflow.
+
+::: challenge
+
+### Creating a workspace for the lesson's exercises
+
+It is best to start with an empty directory. You are free to choose any name,
+but for the sake of this lesson, we will use `jube-workspace/`.
+
+```sh
+$ mkdir jube-workspace/
+$ cd jube-workspace/
+```
+
+```output
+jube-workspace$
+```
+
+:::
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints
