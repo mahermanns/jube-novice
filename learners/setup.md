@@ -30,5 +30,6 @@ user@cluster:~$ cd path/to/local/jube-novice
 user@cluster:jube-novice$ conda env create -f environment.yaml
 ```
 
-N.B.: the environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
-
+:::::::::::::::::::: callout
+The environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
+::::::::::::::::::::
