@@ -18,12 +18,12 @@ Before joining *Reproducible HPC workflows using JUBE*, participants should be a
 
 This lesson is still under construction---please be patient.
 
-If you are looking for an introduction to JUBE, please head over to the [
-JUBE tutorial pages of the Jülich Supercomputing Centre](https://apps.fz-juelich.de/jsc/jube/docu/tutorial.html#).
+If you are looking for an introduction to the Jülich Benchmarking Environment
+(JUBE) in the meantime, feel free to head over to the [
+JUBE tutorial pages of the Jülich Supercomputing Centre][jube-tutorial].
 
 ::::::::::::::::::
 
 This is a lesson built with [The Carpentries Workbench][workbench]. 
 
-[workbench]: https://carpentries.github.io/sandpaper-docs
 
