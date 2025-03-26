@@ -473,7 +473,7 @@ JUBE.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The key goal of this episode is to provide potential uses cases for
 JUBE, and enable the participants to transfer these to their own
@@ -501,7 +501,7 @@ workflows for data generation for publications.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>It is important for the learners to understand that JUBE itself
 <strong>does know what make your workflow reproducible on its
@@ -560,7 +560,7 @@ are involved? Discuss in a group.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Steps may include:</p>
 <ul>
@@ -919,7 +919,7 @@ before execution does your application need?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>Copying an input to a specific directory</li>
@@ -959,7 +959,7 @@ any links that you are not going to use.
 <p>Last updated on 2025-03-26 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/jube_workflow.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -971,7 +971,8 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>Which steps need to be taken when running JUBE?</li>
+<li>Which actions need to be taken when running JUBE?</li>
+<li>Which commands correspond to which state in a JUBE workflow?</li>
 </ul>
 </div>
 </div>
@@ -981,8 +982,9 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>List the basic command for running a JUBE workflow</li>
-<li>Provide</li>
+<li>List the basic commands for running a JUBE workflow.</li>
+<li>Specify the purpose of each top-level command.</li>
+<li>Name the different states a JUBE workflow can have.</li>
 </ul>
 </div>
 </div>
@@ -994,56 +996,243 @@ any links that you are not going to use.
 either an XML or a YAML file.</p>
 <p>A minimal configuration in XML contains the tags
 <code>&lt;jube&gt;</code> and <code>&lt;benchmark&gt;</code>.</p>
-<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
-  <h3 class="accordion-header" id="headingSpoiler1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-XML" type="button" role="tab" aria-controls="nav-tabpanel-1-XML" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-XML">
   XML
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
-<div class="accordion-body">
+<button class="nav-link" id="nav-tab-1-YAML" name="YAML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-YAML" type="button" role="tab" aria-controls="nav-tabpanel-1-YAML" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-YAML">
+  YAML
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
-  <h3 class="accordion-header" id="headingSpoiler2">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  YAML
-  </h3>
-</button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
-<div class="accordion-body">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span></code></pre>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
+<p>This minimal configuration does not include any definition of
+workflow steps and the output will look similar to the following:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>######################################################################
+# benchmark: hello_world
+# id: 0
+#
+# A simple workflow example
+######################################################################
+
+Running workpackages (#=done, 0=wait, E=error):
+............................................................ (  0/  0)
+
+  | stepname | all | open | wait | error | done |
+  |----------|-----|------|------|-------|------|
+
+&gt;&gt;&gt;&gt; Benchmark information and further useful commands:
+&gt;&gt;&gt;&gt;       id: 0
+&gt;&gt;&gt;&gt;   handle: episodes/files/bench_run
+&gt;&gt;&gt;&gt;      dir: episodes/files/bench_run/000000
+&gt;&gt;&gt;&gt;  analyse: jube analyse episodes/files/bench_run --id 0
+&gt;&gt;&gt;&gt;   result: jube result episodes/files/bench_run --id 0
+&gt;&gt;&gt;&gt;     info: jube info episodes/files/bench_run --id 0
+&gt;&gt;&gt;&gt;      log: jube log episodes/files/bench_run --id 0
+######################################################################</code></pre>
 </div>
-<section><h2 class="section-heading" id="running-a-workflow">Running a workflow<a class="anchor" aria-label="anchor" href="#running-a-workflow"></a>
+<section><h2 class="section-heading" id="defining-a-workflow">Defining a workflow<a class="anchor" aria-label="anchor" href="#defining-a-workflow"></a>
+</h2>
+<hr class="half-width">
+<p>With no <em>steps</em> defined, the workflow will immediatley
+complete without specific actions executed, other than file
+JUBE-internal handling of the run and creation of corresponding
+directories and files.</p>
+<p>Looking into the benchmark output directory created, we will see
+somethin that will look similar to the following stucture:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> tree bench_run        <span class="co"># the tree command provides a nice tree for the directory structure</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>bench_run               # the given outpath
+|
++- 000000               # the benchmark id
+   |
+   +- analyse.log       # accumulated log information for analyse command
+   +- analyse.xml       # the retrieved analyse information
+   +- configuration.xml # the stored benchmark configuration
+   +- parse.log         # log information
+   +- result.log        # accumulated log information for result command
+   +- run.log           # accumulated log information for run command
+   +- timestamps        # accumulated of change timestamps
+   +- workpackages.xml  # workpackage information
+</code></pre>
+</div>
+<div class="section level3">
+<h3 id="log-files">Log Files<a class="anchor" aria-label="anchor" href="#log-files"></a>
+</h3>
+<p>The files ending in <code>.log</code> collect details on the
+execution of the corresponding commands. Users will only be interested
+in evaluating these files when debugging a workflow.</p>
+</div>
+<div class="section level3">
+<h3 id="configuration-files">Configuration Files<a class="anchor" aria-label="anchor" href="#configuration-files"></a>
+</h3>
+<p>The files ending in <code>.xml</code> save configuration information
+of the workflow. The file <code>configuration.xml</code> holds a copy of
+the overall configuration used to start the workflow. The file
+<code>workpackages.xml</code> holds information about individual
+instances of parameters in a specific step of the workflow.</p>
+<p>Before running a workflow, at least a single <em>step</em> needs to
+be defined for the workflow. A step is a collection of tasks (defined by
+individual <em>do</em> directives) that share a specific instance of
+parameter values. By allowing parameters to have different values in
+different instances, JUBE will automatically save a snapshot of the
+collection of all parameter values across all instances.</p>
+</div>
+</section><section><h2 class="section-heading" id="defining-parameters">Defining parameters<a class="anchor" aria-label="anchor" href="#defining-parameters"></a>
+</h2>
+<hr class="half-width">
+<p>Next to defining the steps of a workflow, <em>parameters</em> can
+both represent values picked up during the workflow and influence how a
+workflow is executed. To make it easier to manage multiple
+<em>parameters</em>, you need to organize them in <em>parameter
+sets</em>. Let’s define a minimal set of parameters for our initial
+<em>Hello World</em> example.</p>
+<div class="tabs">
+<nav><div id="nav-tab-2" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-2-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-XML" type="button" role="tab" aria-controls="nav-tabpanel-2-XML" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-2-XML">
+  XML
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-YAML" name="YAML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-YAML" type="button" role="tab" aria-controls="nav-tabpanel-2-YAML" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-YAML">
+  YAML
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-2" class="tab-content">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span>&gt;</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>The only reason to define parameters in the first place is to
+<em>use</em> them in the execution of workflow steps. To do this, the
+keyword <code>use</code>, referencing the name of a parameter set, is
+needed in the step definintion.</p>
+<div class="tabs">
+<nav><div id="nav-tab-3" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-3-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-XML" type="button" role="tab" aria-controls="nav-tabpanel-3-XML" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-3-XML">
+  XML
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-3-YAML" name="YAML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-YAML" type="button" role="tab" aria-controls="nav-tabpanel-3-YAML" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-3-YAML">
+  YAML
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-3" class="tab-content">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"hello_pset"</span>&gt;</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"print_message"</span>&gt;</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;hello_pset&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;echo $message&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> print_message</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="at">  </span><span class="fu">do</span><span class="kw">:</span><span class="at"> echo $message</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="running-a-workflow">Running a workflow<a class="anchor" aria-label="anchor" href="#running-a-workflow"></a>
 </h2>
 <hr class="half-width">
 <p>A JUBE workflow is started by the <code>run</code> command, putting
-this workflow into the <code>running</code> state. Any defined tasks
-When no asynchronous tasks are defined (See <a href="run_step.html">Running an application</a>) the steps wi.</p>
+this workflow into the <code>running</code> state. For each defined
+step, individual workpackages are created with a specific instance of
+parameter values. Any defined tasks When no <em>asynchronous</em> tasks
+are defined (See <a href="run_step.html">Running an application</a>) the
+steps will be processes until all workpackages are completed.</p>
 <figure><img src="../fig/JUBE_Workflow.svg" style="width:100.0%" alt="The JUBE workflow with `run`, `continue`, `analysis`, and `result` commands." class="figure mx-auto d-block"><div class="figcaption">The JUBE workflow with <code>run</code>,
 <code>continue</code>, <code>analysis</code>, and <code>result</code>
 commands.</div>
@@ -1055,9 +1244,18 @@ commands.</div>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>A JUBE workflow is started with <code>jube run</code>
-</li>
-<li>A JUBE workflow is completed when all defined steps completed.</li>
+<li>The different states of a JUBE workflow can be <code>running</code>
+and <code>completed</code>.</li>
+<li>A workflow is completed if all steps of the workflow are completed
+(even if some steps may have failed).</li>
+<li>A JUBE workflow is started with <code>jube run</code>.</li>
+<li>JUBE executes the workflow until the end, or until an asynchronous
+task is discovered.</li>
+<li>If JUBE exits with completion of asynchronous tasks still pending,
+the user needs to call <code>jube continue</code> to check for their
+completion and further running of dependent workflow steps until overall
+completion is achieved.</li>
+<li>The user can analyze output and print results at any time.</li>
 </ul>
 </div>
 </div>
@@ -1173,7 +1371,7 @@ entity into its name, for example as a suffix, such as
   XML example
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1201,7 +1399,7 @@ entity into its name, for example as a suffix, such as
   YAML example
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>

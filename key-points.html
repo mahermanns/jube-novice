@@ -450,9 +450,18 @@ parallelism</li>
 </ul></section><section id="jube_workflow"><h2 class="section-heading"><a href="jube_workflow.html">Working with JUBE</a></h2>
 <hr class="half-width">
 <ul>
-<li>A JUBE workflow is started with <code>jube run</code>
-</li>
-<li>A JUBE workflow is completed when all defined steps completed.</li>
+<li>The different states of a JUBE workflow can be <code>running</code>
+and <code>completed</code>.</li>
+<li>A workflow is completed if all steps of the workflow are completed
+(even if some steps may have failed).</li>
+<li>A JUBE workflow is started with <code>jube run</code>.</li>
+<li>JUBE executes the workflow until the end, or until an asynchronous
+task is discovered.</li>
+<li>If JUBE exits with completion of asynchronous tasks still pending,
+the user needs to call <code>jube continue</code> to check for their
+completion and further running of dependent workflow steps until overall
+completion is achieved.</li>
+<li>The user can analyze output and print results at any time.</li>
 </ul></section><section id="basic_tags"><h2 class="section-heading"><a href="basic_tags.html">Influencing parameters with tags</a></h2>
 <hr class="half-width">
 <ul>
