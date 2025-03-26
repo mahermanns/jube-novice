@@ -5,10 +5,10 @@ site: sandpaper::sandpaper_site
 ::::::::::::::::::::: prereq
 Before joining *Reproducible HPC workflows using JUBE*, participants should be able to
 
-- login to an HPC system.
+- login to an HPC system and navigate a terminal window.
 - edit text files with an editor available on the HPC system.
 - submit jobs to a job scheduler present on the HPC system.
-- interact with the HPC systems in a shell.
+- basic shell, Python, or Perl programming knowledge.
 
 ::::::::::::::::::::::::::::::
 
@@ -16,7 +16,8 @@ Before joining *Reproducible HPC workflows using JUBE*, participants should be a
 :::::: callout
 ## 🚧 Under Construction 🚧
 
-This lesson is still under construction---please be patient.
+This lesson is still under construction and will likely change abrubtly and
+frequently---please be patient.
 
 If you are looking for an introduction to the Jülich Benchmarking Environment
 (JUBE) in the meantime, feel free to head over to the [
