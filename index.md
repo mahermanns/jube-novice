@@ -5,10 +5,10 @@ site: sandpaper::sandpaper_site
 ::::::::::::::::::::: prereq
 Before joining *Reproducible HPC workflows using JUBE*, participants should be able to
 
-- login to an HPC system and navigate a terminal window.
+- login to an HPC system and [navigate a UNIX shell][shell-novice].
 - edit text files with an editor available on the HPC system.
-- submit jobs to a job scheduler present on the HPC system.
-- basic shell, Python, or Perl programming knowledge.
+- [submit jobs to a job scheduler][hpc-intro] present on the HPC system.
+- basic [shell][shell-novice], [Python][python-novice-gapminder], or Perl programming knowledge.
 
 ::::::::::::::::::::::::::::::
 

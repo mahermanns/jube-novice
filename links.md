@@ -10,3 +10,6 @@ any links that you are not going to use.
 [workbench]: https://carpentries.github.io/sandpaper-docs
 [gromacs-home]: https://www.gromacs.org/
 [gromacs-download]: https://manual.gromacs.org/2024.5/download.html
+[shell-novice]: https://swcarpentry.github.io/shell-novice/
+[hpc-intro]: https://carpentries-incubator.github.io/hpc-intro/
+[python-novice-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
