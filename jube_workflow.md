@@ -12,8 +12,8 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- List the basic command for running a JUBE workflow
+- Provide
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -54,7 +54,7 @@ A JUBE workflow is started by the `run` command, putting this workflow into the
 `running` state.
 Any defined tasks
 When no asynchronous tasks are defined (See [Running an
-application](../episodes/07-benchmark-run.md)) the steps wi.
+application](../episodes/run_step.md)) the steps wi.
 
 ![The JUBE workflow with `run`,
 `continue`, `analysis`, and `result` commands.](fig/JUBE_Workflow.svg){alt='The JUBE workflow with `run`,
