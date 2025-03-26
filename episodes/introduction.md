@@ -49,6 +49,21 @@ The key benefits of using JUBE are:
 - It allows to easily retrieve strings from runtime output and create tables
   and CSV files.
 
+::: instructor
+It is important for the learners to understand that JUBE itself **does know what
+make your workflow reproducible on its own**. 
+To create a reproducible workflow learners will have to **identify which
+information and actions make the specific workflow reproducible**, and use JUBE
+to **automatically collect and execute** those, respectively.
+:::
+
+::: caution
+
+JUBE is an automation tool. That means, it **does not** intrinsicly make
+your workflows reproducible, but it **lets you automate** all actions that
+can make your workflow reproducible.
+
+:::
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
