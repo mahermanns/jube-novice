@@ -223,7 +223,7 @@ jube-workspace$ which gmx
 install/gromacs-2024.5/bin/gmx
 ```
 
-### Preparing the input
+## Preparing the input
 
 Some application may need specific preparation of its input.
 For example, matrices may need to be *pre-conditioned*, or the application
