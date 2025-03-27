@@ -223,11 +223,33 @@ jube-workspace$ which gmx
 install/gromacs-2024.5/bin/gmx
 ```
 
-### Preparing the input
+## Preparing the input
 
 Some application may need specific preparation of its input.
 For example, matrices may need to be *pre-conditioned*, or the application
 domain needs to be *partitioned* prior to the application execution.
+
+The provided input package for this lesson has three different inputs.
+
+| System            | Sidelength of simulation box | No. of atoms | Simulated time |
+|-------------------|-----------------------------:|-------------:|---------------:|
+| MD_5NM_WATER.tpr  |                         5 nm |        12165 |           1 ns |
+| MD_10NM_WATER.tpr |                        10 nm |        98319 |           1 ns |
+| MD_15NM_WATER.tpr |                        15 nm |       325995 |           1 ns |
+
+The simulation domain is a three-dimensional box with a given side length.
+This means its size grows cubicly with its side length.
+To accomodate for a similar amount of work across the three inputs the number
+of atoms in each input roughly corresponds to the overall volume of the
+simulation box.
+This means, the `10 nm` input contains roughly 8 (`2x2x2`) times as many atoms as the `5 nm`
+input, and the `15 nm` input contains roughly 27 (`3x3x3`) times as many atoms as
+the `5nm` input.
+
+![The size of the simulation box of the different inputs,
+](fig/cubic_domain.svg){alt='The size of the simulation box of the differnet inputs' width='50%'}
+
+For this lesson the inputs do not need further pre-processing.
 
 ::: challenge
 
