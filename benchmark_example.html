@@ -226,6 +226,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#preparing-the-application">Preparing the application</a></li>
+<li><a href="#preparing-the-input">Preparing the input</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -371,7 +372,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>An example application</h1>
-        <p>Last updated on 2025-03-26 |
+        <p>Last updated on 2025-03-27 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -624,12 +625,41 @@ used.</p>
 <pre class="output" tabindex="0"><code><span><span class="va">install</span><span class="op">/</span><span class="va">gromacs</span><span class="op">-</span><span class="fl">2024.5</span><span class="op">/</span><span class="va">bin</span><span class="op">/</span><span class="va">gmx</span></span></code></pre>
 </div>
 </div>
-<div class="section level3">
-<h3 id="preparing-the-input">Preparing the input<a class="anchor" aria-label="anchor" href="#preparing-the-input"></a></h3>
-<p>Some application may need specific preparation of its input. For
+</section><section><h2 class="section-heading" id="preparing-the-input">Preparing the input<a class="anchor" aria-label="anchor" href="#preparing-the-input"></a></h2>
+<hr class="half-width"><p>Some application may need specific preparation of its input. For
 example, matrices may need to be <em>pre-conditioned</em>, or the
 application domain needs to be <em>partitioned</em> prior to the
 application execution.</p>
+<p>The provided input package for this lesson has three different
+inputs.</p>
+<table class="table"><colgroup><col width="24%"><col width="37%"><col width="17%"><col width="20%"></colgroup><thead><tr class="header"><th>System</th>
+<th align="right">Sidelength of simulation box</th>
+<th align="right">No. of atoms</th>
+<th align="right">Simulated time</th>
+</tr></thead><tbody><tr class="odd"><td>MD_5NM_WATER.tpr</td>
+<td align="right">5 nm</td>
+<td align="right">12165</td>
+<td align="right">1 ns</td>
+</tr><tr class="even"><td>MD_10NM_WATER.tpr</td>
+<td align="right">10 nm</td>
+<td align="right">98319</td>
+<td align="right">1 ns</td>
+</tr><tr class="odd"><td>MD_15NM_WATER.tpr</td>
+<td align="right">15 nm</td>
+<td align="right">325995</td>
+<td align="right">1 ns</td>
+</tr></tbody></table><p>The simulation domain is a three-dimensional box with a given side
+length. This means its size grows cubicly with its side length. To
+accomodate for a similar amount of work across the three inputs the
+number of atoms in each input roughly corresponds to the overall volume
+of the simulation box. This means, the <code>10 nm</code> input contains
+roughly 8 (<code>2x2x2</code>) times as many atoms as the
+<code>5 nm</code> input, and the <code>15 nm</code> input contains
+roughly 27 (<code>3x3x3</code>) times as many atoms as the
+<code>5nm</code> input.</p>
+<figure><img src="fig/cubic_domain.svg" style="width:50.0%" alt="The size of the simulation box of the differnet inputs" class="figure mx-auto d-block"><div class="figcaption">The size of the simulation box of the different
+inputs,</div>
+</figure><p>For this lesson the inputs do not need further pre-processing.</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -677,7 +707,6 @@ parallelism</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="introduction.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -735,9 +764,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
   "identifier": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
-  "dateCreated": "2025-03-26",
-  "dateModified": "2025-03-26",
-  "datePublished": "2025-03-26"
+  "dateCreated": "2025-03-27",
+  "dateModified": "2025-03-27",
+  "datePublished": "2025-03-27"
 }
 
   </script><script>
