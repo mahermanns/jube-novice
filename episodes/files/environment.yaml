@@ -6,4 +6,4 @@ dependencies:
   - pip
   # Latest JUBE package
   - pip:
-    - http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
+    - https://apps.fz-juelich.de/jsc/jube/download.php?version=latest

@@ -23,7 +23,10 @@ in preparation][data-tarball].
 ## Software Setup
 
 The `environment.yaml` file describes a Conda virtual environment that includes JUBE: the tool you'll need to run this lesson, as well as some depencencies.
-To prepare the environment, [install Miniconda following the official instructions][miniconda-install]. Then open a shell application and create a new environment:
+To prepare the environment, [install Miniconda following the official instructions][miniconda-install].
+Then download the file [environment.yaml](files/environment.yaml), which contains
+all necessary Python packages for this course.
+Finally, open a shell application and create a new environment:
 
 ```sh
 user@cluster:~$ cd path/to/local/jube-novice
