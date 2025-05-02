@@ -148,14 +148,73 @@ parameterset:
 ```
 :::
 
-The only reason to define parameters in the first place is to *use* them in the execution of workflow steps.
-To do this, the keyword `use`, referencing the name of a parameter set, is needed in the step definintion.
+:::::: callout
 
+## Naming conventions
+
+Several entities defined in the specification are later **used** by its name in the step definitions.
+To make it easier to understand more complex configurations, it is good practice to encode the type of the entity into its name, for example as a suffix, such as `_pset`, `_files`, `_sub`, `_pat`.
+As steps themselves are the highest level entity and never used by other steps,
+you donot need to name them with a special suffix.
 
 ::: group-tab
 
 ### XML
 
+```xml
+<parameterset name="my_pset">
+  ...
+</parameterset>
+<fileset name="my_files">
+  ...
+</fileset>
+<step name="mystep">
+  <use>my_pset</use>
+  <use>my_files</use>
+</step>
+```
+
+### YAML
+```yaml
+parameterset:
+    name: my_pset
+    ...
+
+fileset:
+    name: my_files
+
+step:
+    name: mystep
+    use:
+        my_pset
+        my_files
+```
+:::
+
+Here are some suggestions for suffixes according to their type:
+
+| Entity        | Suffix   |
+|---------------|---------:|
+| Fileset       | `_files` |
+| Parameterset  |  `_pset` |
+| Patterset     |   `_pat` |
+| Substituteset |   `_sub` |
+
+::::::
+
+## Defining workflow steps
+
+The only reason to define parameters in the first place is to *use* them in the execution of actions in your workflow steps.
+To do this, the keyword `use`, referencing the name of a parameter set, is needed in the step definintion.
+Actions are defined using the `do` keyword and should be standard shell
+commands (including arguments).
+Parameters can be referenced using the `$` prefix to its name and are replaced
+by their respective value prior to the execution
+
+::: group-tab
+
+### XML
+You can download the full definition so far as [hello_world.xml](files/hello_world.xml).
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <jube>
@@ -174,7 +233,7 @@ To do this, the keyword `use`, referencing the name of a parameter set, is neede
 ```
 
 ### YAML
-
+You can download the full definition so far as [hello_world.yaml](files/hello_world.yaml).
 ```yaml
 name: hello_world
 outpath: bench_run
@@ -189,6 +248,42 @@ step:
 ```
 :::
 
+### Defining dependencies
+
+A workflow only starts to make sense when you have more than one step and there
+are dependencies between steps.
+In JUBE you can define these dependencies with the **depend** keyword.
+
+::: group-tab
+
+### XML
+
+```xml
+<step name="initial_step">
+...
+</step>
+
+<step name="dependent_step" depend="initial_step">
+...
+</step>
+```
+
+### YAML
+
+```yaml
+step:
+  -name: initial_step
+...
+  -name: dependent_step
+   depend: initial_step
+...
+```
+
+:::
+
+Steps in a workflow that depend on prior steps in the workflow are only
+executed once the corresponding dependent step has executed successfully.
+
 ## Running a workflow
 
 A JUBE workflow is started by the `run` command, putting this workflow into the
@@ -202,6 +297,8 @@ application](../episodes/run_step.md)) the steps will be processes until all wor
 `continue`, `analysis`, and `result` commands.](fig/JUBE_Workflow.svg){alt='The JUBE workflow with `run`,
 `continue`, `analysis`, and `result` commands.' width='100%'}
 
+A JUBE workflow is initiated with the `run` command. At that time, the first
+step will create workpackages based on the use parametersets.
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints
@@ -212,6 +309,8 @@ application](../episodes/run_step.md)) the steps will be processes until all wor
 - JUBE executes the workflow until the end, or until an asynchronous task is discovered.
 - If JUBE exits with completion of asynchronous tasks still pending, the user needs to call `jube continue` to check for their completion and further running of dependent workflow steps until overall completion is achieved.
 - The user can analyze output and print results at any time.
-
+- Comma-separated values in parameter definition are tokenized and create individual workpackages.
+  Using multiple comma-separated values for parameters enables easy creation of
+  parameter spaces.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
