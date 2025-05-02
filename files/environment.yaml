@@ -1,0 +1,9 @@
+name: jube-novice
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  # Latest JUBE package
+  - pip:
+    - https://apps.fz-juelich.de/jsc/jube/download.php?version=latest

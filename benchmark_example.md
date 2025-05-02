@@ -31,9 +31,9 @@ GROMACS is a free and open-source software suite for high-performance molecular 
 ### Downloading GROMACS
 
 While many HPC systems provide GROMACS installations for different versions,
-this lesson will use 
+this lesson will use
 Eventually, downloading GROMACS will be part of the overall HPC workflow, but
-you can download the 2024.5 version of GROMACS from the [download page of GROMACS][gromacs-download].
+you can download the 2024.5 version of GROMACS manually from the [download page of GROMACS][gromacs-download].
 
 ```sh
 jube-workspace$ mkdir sources
@@ -231,11 +231,11 @@ domain needs to be *partitioned* prior to the application execution.
 
 The provided input package for this lesson has three different inputs.
 
-| System            | Sidelength of simulation box | No. of atoms | Simulated time |
-|-------------------|-----------------------------:|-------------:|---------------:|
-| MD_5NM_WATER.tpr  |                         5 nm |        12165 |           1 ns |
-| MD_10NM_WATER.tpr |                        10 nm |        98319 |           1 ns |
-| MD_15NM_WATER.tpr |                        15 nm |       325995 |           1 ns |
+| System                | Sidelength of simulation box | No. of atoms | Simulated time |
+|-----------------------|-----------------------------:|-------------:|---------------:|
+| [MD_5NM_WATER.tpr](data/MD_5NM_WATER.tpr)   |   5 nm |        12165 |           1 ns |
+| [MD_10NM_WATER.tpr](data/MD_10NM_WATER.tpr) |  10 nm |        98319 |           1 ns |
+| [MD_15NM_WATER.tpr](data/MD_15NM_WATER.tpr) |  15 nm |       325995 |           1 ns |
 
 The simulation domain is a three-dimensional box with a given side length.
 This means its size grows cubicly with its side length.
