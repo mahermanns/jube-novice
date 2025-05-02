@@ -62,9 +62,8 @@ episodes:
   - introduction.md
   - benchmark_example.md
   - jube_workflow.md
-  - basic_tags.md
   - initial_step.md
-  - build_step.md
+  - basic_tags.md
   - run_step.md
   - gathering_output.md
   - result_tables.md

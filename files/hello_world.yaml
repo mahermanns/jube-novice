@@ -1,0 +1,9 @@
+name: hello_world
+outpath: bench_run
+comment: A simple workflow example
+parameterset:
+  name: hello_pset
+  parameter: {name: message, _: Hello World}
+step:
+  name: hello
+  do: echo $message

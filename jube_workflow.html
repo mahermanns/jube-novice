@@ -118,11 +118,11 @@
   Reproducible HPC workflows using JUBE
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 23%" class="percentage">
-    23%
+<aside class="col-md-12 lesson-progress"><div style="width: 25%" class="percentage">
+    25%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 23%" aria-valuenow="23" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 25%" aria-valuenow="25" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -236,6 +236,7 @@
       <div class="accordion-body">
         <ul><li><a href="#defining-a-workflow">Defining a workflow</a></li>
 <li><a href="#defining-parameters">Defining parameters</a></li>
+<li><a href="#defining-workflow-steps">Defining workflow steps</a></li>
 <li><a href="#running-a-workflow">Running a workflow</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -246,7 +247,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="basic_tags.html">4. Influencing parameters with tags</a>
+        <a href="initial_step.html">4. An initial workflow specification</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -255,7 +256,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="initial_step.html">5. An initial workflow step</a>
+        <a href="basic_tags.html">5. Influencing parameters with tags</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -264,7 +265,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="build_step.html">6. Building an application</a>
+        <a href="run_step.html">6. Running an application</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -273,7 +274,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="run_step.html">7. Running an application</a>
+        <a href="gathering_output.html">7. Gathering output</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -282,7 +283,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="gathering_output.html">8. Gathering output</a>
+        <a href="result_tables.html">8. Generating result tables</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -291,7 +292,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="result_tables.html">9. Generating result tables</a>
+        <a href="stage_iterations.html">9. Running stages multiple times</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -300,16 +301,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="stage_iterations.html">10. Running stages multiple times</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush12">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading12">
-        <a href="outlook.html">11. Wrap-up and outlook</a>
+        <a href="outlook.html">10. Wrap-up and outlook</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -358,7 +350,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="benchmark_example.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="basic_tags.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="initial_step.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -366,14 +358,14 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: An example
         </a>
-        <a class="chapter-link float-end" href="basic_tags.html" rel="next">
-          Next: Influencing...
+        <a class="chapter-link float-end" href="initial_step.html" rel="next">
+          Next: An initial workflow...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Working with JUBE</h1>
-        <p>Last updated on 2025-03-26 |
+        <p>Last updated on 2025-05-02 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/jube_workflow.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -580,10 +572,21 @@ sets</em>. Let’s define a minimal set of parameters for our initial
 </div>
 </div>
 </div>
-<p>The only reason to define parameters in the first place is to
-<em>use</em> them in the execution of workflow steps. To do this, the
-keyword <code>use</code>, referencing the name of a parameter set, is
-needed in the step definintion.</p>
+<div id="naming-conventions" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="naming-conventions" class="callout-inner">
+<h3 class="callout-title">Naming conventions</h3>
+<div class="callout-content">
+<p>Several entities defined in the specification are later
+<strong>used</strong> by its name in the step definitions. To make it
+easier to understand more complex configurations, it is good practice to
+encode the type of the entity into its name, for example as a suffix,
+such as <code>_pset</code>, <code>_files</code>, <code>_sub</code>,
+<code>_pat</code>. As steps themselves are the highest level entity and
+never used by other steps, you donot need to name them with a special
+suffix.</p>
 <div class="tabs">
 <nav><div id="nav-tab-3" class="nav nav-tabs" role="tablist">
 <button class="nav-link active" id="nav-tab-3-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-XML" type="button" role="tab" aria-controls="nav-tabpanel-3-XML" aria-selected="true">
@@ -602,39 +605,164 @@ needed in the step definintion.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"hello_pset"</span>&gt;</span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"print_message"</span>&gt;</span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;hello_pset&lt;/<span class="kw">use</span>&gt;</span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;echo $message&lt;/<span class="kw">do</span>&gt;</span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>&lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"my_pset"</span>&gt;</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  ...</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>&lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>&lt;<span class="kw">fileset</span><span class="ot"> name=</span><span class="st">"my_files"</span>&gt;</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  ...</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>&lt;/<span class="kw">fileset</span>&gt;</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"mystep"</span>&gt;</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_pset&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_files&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> print_message</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="at">  </span><span class="fu">do</span><span class="kw">:</span><span class="at"> echo $message</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_pset</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="at">    ...</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">fileset</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_files</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> mystep</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="at">    </span><span class="fu">use</span><span class="kw">:</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="at">        my_pset</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="at">        my_files</span></span></code></pre>
 </div>
 </div>
 </div>
+</div>
+<p>Here are some suggestions for suffixes according to their type:</p>
+<table class="table"><thead><tr class="header"><th>Entity</th>
+<th align="right">Suffix</th>
+</tr></thead><tbody><tr class="odd"><td>Fileset</td>
+<td align="right"><code>_files</code></td>
+</tr><tr class="even"><td>Parameterset</td>
+<td align="right"><code>_pset</code></td>
+</tr><tr class="odd"><td>Patterset</td>
+<td align="right"><code>_pat</code></td>
+</tr><tr class="even"><td>Substituteset</td>
+<td align="right"><code>_sub</code></td>
+</tr></tbody></table></div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="defining-workflow-steps">Defining workflow steps<a class="anchor" aria-label="anchor" href="#defining-workflow-steps"></a></h2>
+<hr class="half-width"><p>The only reason to define parameters in the first place is to
+<em>use</em> them in the execution of actions in your workflow steps. To
+do this, the keyword <code>use</code>, referencing the name of a
+parameter set, is needed in the step definintion. Actions are defined
+using the <code>do</code> keyword and should be standard shell commands
+(including arguments). Parameters can be referenced using the
+<code>$</code> prefix to its name and are replaced by their respective
+value prior to the execution</p>
+<div class="tabs">
+<nav><div id="nav-tab-4" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-4-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-4-XML" type="button" role="tab" aria-controls="nav-tabpanel-4-XML" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-4-XML">
+  XML
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-4-YAML" name="YAML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-4-YAML" type="button" role="tab" aria-controls="nav-tabpanel-4-YAML" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-4-YAML">
+  YAML
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-4" class="tab-content">
+<div id="nav-tabpanel-4-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-XML">
+<p>You can download the full definition so far as <a href="files/hello_world.xml">hello_world.xml</a>.</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"hello_pset"</span>&gt;</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"print_message"</span>&gt;</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;hello_pset&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;echo $message&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-4-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-YAML">
+<p>You can download the full definition so far as <a href="files/hello_world.yaml">hello_world.yaml</a>.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> print_message</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="at">  </span><span class="fu">do</span><span class="kw">:</span><span class="at"> echo $message</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="defining-dependencies">Defining dependencies<a class="anchor" aria-label="anchor" href="#defining-dependencies"></a></h3>
+<p>A workflow only starts to make sense when you have more than one step
+and there are dependencies between steps. In JUBE you can define these
+dependencies with the <strong>depend</strong> keyword.</p>
+<div class="tabs">
+<nav><div id="nav-tab-5" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-5-XML" name="XML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-5-XML" type="button" role="tab" aria-controls="nav-tabpanel-5-XML" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-5-XML">
+  XML
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-5-YAML" name="YAML" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-5-YAML" type="button" role="tab" aria-controls="nav-tabpanel-5-YAML" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-5-YAML">
+  YAML
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-5" class="tab-content">
+<div id="nav-tabpanel-5-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-XML">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"initial_step"</span>&gt;</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>...</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"dependent_step"</span><span class="ot"> depend=</span><span class="st">"initial_step"</span>&gt;</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>...</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-5-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-YAML">
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">  </span><span class="fu">-name</span><span class="kw">:</span><span class="at"> initial_step</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">...</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">  -name: dependent_step</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">   depend: initial_step</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">...</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Steps in a workflow that depend on prior steps in the workflow are
+only executed once the corresponding dependent step has executed
+successfully.</p>
 </div>
 </section><section><h2 class="section-heading" id="running-a-workflow">Running a workflow<a class="anchor" aria-label="anchor" href="#running-a-workflow"></a></h2>
 <hr class="half-width"><p>A JUBE workflow is started by the <code>run</code> command, putting
@@ -646,7 +774,10 @@ steps will be processes until all workpackages are completed.</p>
 <figure><img src="fig/JUBE_Workflow.svg" style="width:100.0%" alt="The JUBE workflow with `run`, `continue`, `analysis`, and `result` commands." class="figure mx-auto d-block"><div class="figcaption">The JUBE workflow with <code>run</code>,
 <code>continue</code>, <code>analysis</code>, and <code>result</code>
 commands.</div>
-</figure><div id="keypoints1" class="callout keypoints">
+</figure><p>A JUBE workflow is initiated with the <code>run</code> command. At
+that time, the first step will create workpackages based on the use
+parametersets.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -665,6 +796,9 @@ the user needs to call <code>jube continue</code> to check for their
 completion and further running of dependent workflow steps until overall
 completion is achieved.</li>
 <li>The user can analyze output and print results at any time.</li>
+<li>Comma-separated values in parameter definition are tokenized and
+create individual workpackages. Using multiple comma-separated values
+for parameters enables easy creation of parameter spaces.</li>
 </ul></div>
 </div>
 </div>
@@ -675,7 +809,7 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="benchmark_example.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="basic_tags.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="initial_step.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -683,8 +817,8 @@ any links that you are not going to use.
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: An example
         </a>
-        <a class="chapter-link float-end" href="basic_tags.html" rel="next">
-          Next: Influencing...
+        <a class="chapter-link float-end" href="initial_step.html" rel="next">
+          Next: An initial workflow...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -729,9 +863,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/jube_workflow.html",
   "identifier": "https://mahermanns.github.io/jube-novice/jube_workflow.html",
-  "dateCreated": "2025-03-27",
-  "dateModified": "2025-03-26",
-  "datePublished": "2025-04-29"
+  "dateCreated": "2025-05-02",
+  "dateModified": "2025-05-02",
+  "datePublished": "2025-05-02"
 }
 
   </script><script>

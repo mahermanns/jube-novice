@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jube>
+  <benchmark name="hello_world" outpath="bench_run">
+    <comment>A simple workflow example</comment>
+    <!-- further configuration goes here -->
+  </benchmark>
+  <parameterset name="hello_pset">
+    <parameter name="message">Hello World</parameter>
+  </parameterset>
+  <step name="print_message">
+    <use>hello_pset</use>
+    <do>echo $message</do>
+  </step>
+</jube>

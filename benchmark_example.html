@@ -118,11 +118,11 @@
   Reproducible HPC workflows using JUBE
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 13%" class="percentage">
-    13%
+<aside class="col-md-12 lesson-progress"><div style="width: 14%" class="percentage">
+    14%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 13%" aria-valuenow="13" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 14%" aria-valuenow="14" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -245,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="basic_tags.html">4. Influencing parameters with tags</a>
+        <a href="initial_step.html">4. An initial workflow specification</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -254,7 +254,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="initial_step.html">5. An initial workflow step</a>
+        <a href="basic_tags.html">5. Influencing parameters with tags</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -263,7 +263,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="build_step.html">6. Building an application</a>
+        <a href="run_step.html">6. Running an application</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -272,7 +272,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="run_step.html">7. Running an application</a>
+        <a href="gathering_output.html">7. Gathering output</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="gathering_output.html">8. Gathering output</a>
+        <a href="result_tables.html">8. Generating result tables</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -290,7 +290,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="result_tables.html">9. Generating result tables</a>
+        <a href="stage_iterations.html">9. Running stages multiple times</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -299,16 +299,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="stage_iterations.html">10. Running stages multiple times</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush12">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading12">
-        <a href="outlook.html">11. Wrap-up and outlook</a>
+        <a href="outlook.html">10. Wrap-up and outlook</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -372,7 +363,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>An example application</h1>
-        <p>Last updated on 2025-03-27 |
+        <p>Last updated on 2025-05-02 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -421,7 +412,7 @@ analysis.</p>
 <p>While many HPC systems provide GROMACS installations for different
 versions, this lesson will use Eventually, downloading GROMACS will be
 part of the overall HPC workflow, but you can download the 2024.5
-version of GROMACS from the <a href="https://manual.gromacs.org/2024.5/download.html" class="external-link">download page of
+version of GROMACS manually from the <a href="https://manual.gromacs.org/2024.5/download.html" class="external-link">download page of
 GROMACS</a>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -632,19 +623,19 @@ application domain needs to be <em>partitioned</em> prior to the
 application execution.</p>
 <p>The provided input package for this lesson has three different
 inputs.</p>
-<table class="table"><colgroup><col width="24%"><col width="37%"><col width="17%"><col width="20%"></colgroup><thead><tr class="header"><th>System</th>
+<table class="table"><colgroup><col width="27%"><col width="36%"><col width="16%"><col width="19%"></colgroup><thead><tr class="header"><th>System</th>
 <th align="right">Sidelength of simulation box</th>
 <th align="right">No. of atoms</th>
 <th align="right">Simulated time</th>
-</tr></thead><tbody><tr class="odd"><td>MD_5NM_WATER.tpr</td>
+</tr></thead><tbody><tr class="odd"><td><a href="data/MD_5NM_WATER.tpr">MD_5NM_WATER.tpr</a></td>
 <td align="right">5 nm</td>
 <td align="right">12165</td>
 <td align="right">1 ns</td>
-</tr><tr class="even"><td>MD_10NM_WATER.tpr</td>
+</tr><tr class="even"><td><a href="data/MD_10NM_WATER.tpr">MD_10NM_WATER.tpr</a></td>
 <td align="right">10 nm</td>
 <td align="right">98319</td>
 <td align="right">1 ns</td>
-</tr><tr class="odd"><td>MD_15NM_WATER.tpr</td>
+</tr><tr class="odd"><td><a href="data/MD_15NM_WATER.tpr">MD_15NM_WATER.tpr</a></td>
 <td align="right">15 nm</td>
 <td align="right">325995</td>
 <td align="right">1 ns</td>
@@ -764,9 +755,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
   "identifier": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
-  "dateCreated": "2025-03-27",
-  "dateModified": "2025-03-27",
-  "datePublished": "2025-04-29"
+  "dateCreated": "2025-05-02",
+  "dateModified": "2025-05-02",
+  "datePublished": "2025-05-02"
 }
 
   </script><script>
