@@ -4,7 +4,7 @@ teaching: 10
 exercises: 2
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How can a workflow be influenced from the command line without changing the
   workflow specification files?
@@ -150,6 +150,92 @@ is chosen, but in the presense of the tag `v2024.1` the version 2024.1.
 
 
 :::::::::::::
+
+
+### Using tags to enable a forced rebuild
+
+Using the `tag` functionality, we can add a second definintion of the `build_gromacs` parameter with a *rebuild* tag to the workflow specification to
+force JUBE to rebuild of GROMACS just by adding the *rebuild* tag on the command line when running a workflow.
+
+::: group-tab
+
+### XML
+
+```sh
+jube-workflow$ nano gromacs.xml
+```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<jube>
+  <benchmark name="GROMACS" outpath="bench_run">
+    <comment>MD Simulation Workflow</comment>
+    <!-- further configuration goes here -->
+  </benchmark>
+  <parameterset name="gromacs_pset">
+    <parameter name="gromacs_version">2024.5</parameter>
+    <parameter name="gromacs_sources">gromacs-$gromacs_version</parameterrameter>
+    <parameter name="gromacs_archive">$gromacs_sources.tar.gz</parameter>
+    <parameter name="gromacs_source_dir">$jube_benchmark_home/source</parameter>
+    <parameter name="gromacs_baseurl">https://ftp.gromacs.org/gromacs/</parameter>
+    <parameter name="gromacs_build_dir">build_$gromacs_sources</parameter>
+    <parameter name="gromacs_install_dir">$jube_benchmark_home/$gromacs_sources</parameter>
+    <parameter name="gromacs_install_indicator">.install_complete</parameter>
+    <parameter name="build_gromacs" mode="shell">if [ -e "$gromacs_install_dir/$gromacs_install_indicator" ]; then echo false; else echo true; fi</parameter>
+    <parameter name="build_gromacs" tag="rebuild">true</parameter>
+  </parameterset>
+  <step name="prepare_sources">
+    <use>gromacs_pset</use>
+    <do>mkdir -p $gromacs_source_dir</do>
+    <do work_dir="$gromacs_source_dir">wget $gromacs_baseurl/$gromacs_archive</do>
+    <do work_dir="$gromacs_source_dir">tar xzf $gromacs_archive</do>
+  </step>
+  <step name="build" depend="prepare_sources">
+    <do active="$build_gromacs">if [ -d "$gromacs_install_dir" ]; then rm -rf "$gromacs_install_dir"; fi</do>
+    <do active="$build_gromacs">cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir &gt; cmake_configure.log</do>
+    <do active="$build_gromacs">cmake --build $gromacs_build_dir --parallel 12 &gt; cmake_build.log</do>
+    <do active="$build_gromacs">cmake --install $gromacs_build_dir --prefix &gt; cmake_install.log</do>
+    <do active="$build_gromacs">mkdir -p $gromacs_install_dir/share/ &amp;&amp; cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share</do>
+    <do active="$build_gromacs">touch "$gromacs_install_dir/$gromacs_install_indicator"</do>
+  </step>
+</jube>
+```
+
+### YAML
+
+```sh
+jube-workflow$ nano gromacs.yaml
+```
+```yaml
+name: GROMACS
+outpath: jube_run
+comment: MD Simulation Workflow
+
+parameterset:
+  name: gromacs_pset
+  parameter:
+...
+    - { name: build_gromacs, mode: shell, _: if [ -e "$gromacs_install_dir/$gromacs_install_indicator" ]; then echo false; else echo true; fi }
+    - { name: build_gromacs tag: rebuild, _: true }
+
+step:
+  - name: prepare_sources
+    use: gromacs_pset
+    do:
+      - mkdir -p $gromacs_source_dir
+      - { work_dir: $gromacs_source_dir, _: wget https://ftp.gromacs.org/gromacs/$gromacs_archive }
+      - { work_dir: $gromacs__dir, _:tar xvzf $gromacs_archive }
+  - name: build
+    depend: prepare_sources
+    do:
+      - { active: $build_gromacs _: if [ -d "$gromacs_install_dir" ]; then rm -rf "$gromacs_install_dir"; fi }
+      - { active: $build_gromacs _: cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir > cmake_configure.log }
+      - { active: $build_gromacs _: cmake --build $gromacs_build_dir --parallel 12 > cmake_build.log }
+      - { active: $build_gromacs _: cmake --install $gromacs_build_dir --prefix $gromacs_install_dir > cmake_install.log" }
+      - { active: $build_gromacs _: mkdir -p $gromacs_install_dir/share/ &amp;&amp; cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share }
+      - { active: $build_gromacs _: touch "$gromacs_install_dir/$gromacs_install_indicator" }
+```
+:::
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
