@@ -4,7 +4,7 @@ teaching: 10
 exercises: 2
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How to use JUBE to automate the build process of a given HPC application?
 
@@ -84,12 +84,12 @@ comment: MD Simulation Workflow
 
 step:
   - name: prepare_sources
-    do: 
+    do:
       - wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz
       - tar xvzf gromacs-2024.5.tar.gz
   - name: build
     depend: prepare_sources
-    do: 
+    do:
       - cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs
       - cmake --build build_gromacs --parallel 12
       - cmake --install build_gromacs --prefix install/gromacs-2024.5
@@ -296,9 +296,28 @@ step:
       - cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir > cmake_configure.log
       - cmake --build $gromacs_build_dir --parallel 12 > cmake_build.log
       - cmake --install $gromacs_build_dir --prefix $gromacs_install_dir > cmake_install.log
-      - touch $gromacs_install_dir/.install_complete
+      - mkdir -p $gromacs_install_dir/share/ && cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share
 ```
 :::
+
+Now we installed GROMACS externally but yet have to automate the decision whether to build or use the installed version.
+This can be handled with the `active` attribute.
+Steps and do tags (and a few others) can contain an attribute `active` that can be either `true` or `false` or any parsable boolean Python expression.
+When evaluated to `false`, the respective entity is disabled.
+When evaluated to `true`, the respective entity remains enabled (just as if no `active` attribute had been given).
+
+To only build GROMACS, when no complete install is available, we need
+
+- an indicator that a previous install was successfull,
+- the evaluation of that indicator,
+- an expression to use as the value for the `active` attribute, and
+- add an action to remove any preexisting installation (that may be incomplete).
+
+For this purpose we add a final `do` action to the *build* step that creates a file indicating that this step was complete and, because of transitivity, all prior `do` actions completed successfully.
+Furthermore, we then create a `parameter` as part of the `gromacs_pset` that indicates the existence of the file in the target directory.
+We use a parameter here, because of it ease of use when checking for the existence of a file as part of a shell expresseion.
+This parameter can then be referenced in the appropriate `do` actions in the build step.
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
