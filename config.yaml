@@ -64,6 +64,7 @@ episodes:
   - jube_workflow.md
   - initial_step.md
   - basic_tags.md
+  - spanning_parameter_spaces.md
   - run_step.md
   - gathering_output.md
   - result_tables.md
