@@ -28,6 +28,6 @@ JUBE tutorial pages of the Jülich Supercomputing Centre][jube-tutorial].
 
 ::::::::::::::::::
 
-This is a lesson built with [The Carpentries Workbench][workbench]. 
+This is a lesson built with [The Carpentries Workbench][workbench].
 
 

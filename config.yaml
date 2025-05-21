@@ -65,10 +65,10 @@ episodes:
   - initial_step.md
   - basic_tags.md
   - spanning_parameter_spaces.md
+  - external_data.md
   - run_step.md
-  - gathering_output.md
-  - result_tables.md
-  - stage_iterations.md
+  - output_analysis_presentation.md
+  - reproducibility.md
   - outlook.md
 
 # Information for Learners
@@ -76,10 +76,10 @@ learners:
   - acknowledgements.md
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
