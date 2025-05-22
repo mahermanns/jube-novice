@@ -9,7 +9,7 @@ Before joining *Reproducible HPC workflows using JUBE*, participants should be a
 - edit text files with an editor available on the HPC system.
 - [submit jobs to a job scheduler][hpc-intro] present on the HPC system.
 - basic [shell][shell-novice], [Python][python-novice-gapminder], or Perl programming knowledge.
-- basic understanding [regular expression][carpentries-regex].
+- basic understanding of [regular expressions][carpentries-regex].
 
 ::::::::::::::::::::::::::::::
 
