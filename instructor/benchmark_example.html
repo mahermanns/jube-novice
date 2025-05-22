@@ -372,7 +372,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>An example application</h1>
-        <p>Last updated on 2025-05-02 |
+        <p>Last updated on 2025-05-22 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -449,7 +449,7 @@ of GROMACS. For this, we generate a build directory in the</p>
 <pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">sources$</span> tar xzf gromacs-2024.5.tar.gz</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">sources$</span> cd ..</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs</span></code></pre>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -679,7 +679,7 @@ before execution does your application need?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>Copying an input to a specific directory</li>
 <li>(Re-)naming input files to specific names</li>
@@ -767,7 +767,7 @@ any links that you are not going to use.
   "url": "https://mahermanns.github.io/jube-novice/instructor/benchmark_example.html",
   "identifier": "https://mahermanns.github.io/jube-novice/instructor/benchmark_example.html",
   "dateCreated": "2025-05-22",
-  "dateModified": "2025-05-02",
+  "dateModified": "2025-05-22",
   "datePublished": "2025-05-22"
 }
 

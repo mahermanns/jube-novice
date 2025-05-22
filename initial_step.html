@@ -373,7 +373,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>An initial workflow specification</h1>
-        <p>Last updated on 2025-05-09 |
+        <p>Last updated on 2025-05-22 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/initial_step.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -429,7 +429,7 @@ compiling GROMACS, we can define two different steps:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>If we would define all actions taken in the episode manually building
 GROMACS in one step, we would always download the sources of GROMACS for
@@ -479,7 +479,7 @@ should be part of the same step.</p>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;tar xzf gromacs-2024.5.tar.gz&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake --build build_gromacs --parallel 12&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake --install build_gromacs --prefix install/gromacs-2024.5&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    &lt;/<span class="kw">step</span>&gt;</span>
@@ -508,7 +508,7 @@ should be part of the same step.</p>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> build</span></span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="at">    </span><span class="fu">depend</span><span class="kw">:</span><span class="at"> prepare_sources</span></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="at">    </span><span class="fu">do</span><span class="kw">:</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON</span></span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --build build_gromacs --parallel 12</span></span>
 <span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --install build_gromacs --prefix install/gromacs-2024.5</span></span></code></pre>
 </div>
@@ -573,7 +573,7 @@ for key variables in your workflow, to make this more flexible.</p>
 <span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;tar xzf $gromacs_archive&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --build $gromacs_build_dir --parallel 12&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --install $gromacs_build_dir --prefix&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
@@ -708,7 +708,7 @@ installations accidentially.</p>
 <span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>    &lt;<span class="kw">do</span><span class="ot"> work_dir=</span><span class="st">"$gromacs_source_dir"</span>&gt;tar xzf $gromacs_archive&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir <span class="dv">&amp;gt;</span> cmake_configure.log&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON <span class="dv">&amp;gt;</span> cmake_configure.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --build $gromacs_build_dir --parallel 12 <span class="dv">&amp;gt;</span> cmake_build.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --install $gromacs_build_dir --prefix <span class="dv">&amp;gt;</span> cmake_install.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;touch $gromacs_install_dir/.install_complete&lt;/<span class="kw">do</span>&gt;</span>
@@ -750,7 +750,7 @@ installations accidentially.</p>
 <span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> build</span></span>
 <span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a><span class="at">    </span><span class="fu">depend</span><span class="kw">:</span><span class="at"> prepare_sources</span></span>
 <span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a><span class="at">    </span><span class="fu">do</span><span class="kw">:</span></span>
-<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir &gt; cmake_configure.log</span></span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON &gt; cmake_configure.log</span></span>
 <span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --build $gromacs_build_dir --parallel 12 &gt; cmake_build.log</span></span>
 <span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --install $gromacs_build_dir --prefix $gromacs_install_dir &gt; cmake_install.log</span></span>
 <span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> mkdir -p $gromacs_install_dir/share/ &amp;&amp; cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share</span></span></code></pre>
@@ -863,7 +863,7 @@ any links that you are not going to use.
   "url": "https://mahermanns.github.io/jube-novice/initial_step.html",
   "identifier": "https://mahermanns.github.io/jube-novice/initial_step.html",
   "dateCreated": "2025-05-22",
-  "dateModified": "2025-05-09",
+  "dateModified": "2025-05-22",
   "datePublished": "2025-05-22"
 }
 

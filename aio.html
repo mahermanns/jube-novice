@@ -526,7 +526,7 @@ are involved? Please discuss this in groups.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Steps may include:</p>
 <ul>
@@ -604,7 +604,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-benchmark_example"><p>Content from <a href="benchmark_example.html">An example application</a></p>
 <hr>
-<p>Last updated on 2025-05-02 |
+<p>Last updated on 2025-05-22 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -681,7 +681,7 @@ of GROMACS. For this, we generate a build directory in the</p>
 <pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">sources$</span> tar xzf gromacs-2024.5.tar.gz</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">sources$</span> cd ..</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs</span></code></pre>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -932,7 +932,7 @@ before execution does your application need?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Copying an input to a specific directory</li>
@@ -1436,7 +1436,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-initial_step"><p>Content from <a href="initial_step.html">An initial workflow specification</a></p>
 <hr>
-<p>Last updated on 2025-05-09 |
+<p>Last updated on 2025-05-22 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/initial_step.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1494,7 +1494,7 @@ compiling GROMACS, we can define two different steps:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>If we would define all actions taken in the episode manually building
 GROMACS in one step, we would always download the sources of GROMACS for
@@ -1544,7 +1544,7 @@ should be part of the same step.</p>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;tar xzf gromacs-2024.5.tar.gz&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake --build build_gromacs --parallel 12&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>      &lt;<span class="kw">do</span>&gt;cmake --install build_gromacs --prefix install/gromacs-2024.5&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    &lt;/<span class="kw">step</span>&gt;</span>
@@ -1573,7 +1573,7 @@ should be part of the same step.</p>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> build</span></span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="at">    </span><span class="fu">depend</span><span class="kw">:</span><span class="at"> prepare_sources</span></span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="at">    </span><span class="fu">do</span><span class="kw">:</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON</span></span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --build build_gromacs --parallel 12</span></span>
 <span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --install build_gromacs --prefix install/gromacs-2024.5</span></span></code></pre>
 </div>
@@ -1642,7 +1642,7 @@ for key variables in your workflow, to make this more flexible.</p>
 <span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;tar xzf $gromacs_archive&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --build $gromacs_build_dir --parallel 12&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --install $gromacs_build_dir --prefix&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
@@ -1779,7 +1779,7 @@ installations accidentially.</p>
 <span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>    &lt;<span class="kw">do</span><span class="ot"> work_dir=</span><span class="st">"$gromacs_source_dir"</span>&gt;tar xzf $gromacs_archive&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
 <span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"build"</span><span class="ot"> depend=</span><span class="st">"prepare_sources"</span>&gt;</span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir <span class="dv">&amp;gt;</span> cmake_configure.log&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON <span class="dv">&amp;gt;</span> cmake_configure.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --build $gromacs_build_dir --parallel 12 <span class="dv">&amp;gt;</span> cmake_build.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;cmake --install $gromacs_build_dir --prefix <span class="dv">&amp;gt;</span> cmake_install.log&lt;/<span class="kw">do</span>&gt;</span>
 <span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;touch $gromacs_install_dir/.install_complete&lt;/<span class="kw">do</span>&gt;</span>
@@ -1821,7 +1821,7 @@ installations accidentially.</p>
 <span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> build</span></span>
 <span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a><span class="at">    </span><span class="fu">depend</span><span class="kw">:</span><span class="at"> prepare_sources</span></span>
 <span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a><span class="at">    </span><span class="fu">do</span><span class="kw">:</span></span>
-<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir &gt; cmake_configure.log</span></span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON &gt; cmake_configure.log</span></span>
 <span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --build $gromacs_build_dir --parallel 12 &gt; cmake_build.log</span></span>
 <span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> cmake --install $gromacs_build_dir --prefix $gromacs_install_dir &gt; cmake_install.log</span></span>
 <span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> mkdir -p $gromacs_install_dir/share/ &amp;&amp; cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share</span></span></code></pre>
@@ -1941,14 +1941,14 @@ different version of the software.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"gromacs_version"</span>&gt;2024.1&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1992,7 +1992,7 @@ workflow run.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2000,7 +2000,7 @@ workflow run.</p>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"var"</span>&gt;two&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2047,14 +2047,14 @@ definitions:</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"var"</span><span class="ot"> tag=</span><span class="st">"a,!b,c"</span>&gt;...&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2100,7 +2100,7 @@ default the version 2024.5 is chosen, but in the presense of the tag
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-XML" class="tab-pane show active" aria-labelledby="nav-tab-4-XML" role="tabpanel">
+<div id="nav-tabpanel-4-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-XML">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2108,7 +2108,7 @@ default the version 2024.5 is chosen, but in the presense of the tag
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"gromacs_version"</span><span class="ot"> tag=</span><span class="st">"v2024.1"</span>&gt;2024.1&gt;/parameter&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-4-YAML" class="tab-pane" aria-labelledby="nav-tab-4-YAML" role="tabpanel">
+<div id="nav-tabpanel-4-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-YAML">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2144,7 +2144,7 @@ command line when running a workflow.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-XML" class="tab-pane show active" aria-labelledby="nav-tab-5-XML" role="tabpanel">
+<div id="nav-tabpanel-5-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-XML">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2188,7 +2188,7 @@ command line when running a workflow.</p>
 <span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-5-YAML" class="tab-pane" aria-labelledby="nav-tab-5-YAML" role="tabpanel">
+<div id="nav-tabpanel-5-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-YAML">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2311,14 +2311,14 @@ parameters.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"myparam"</span><span class="ot"> separator=</span><span class="st">";"</span>&gt;1,2,3,4&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2347,7 +2347,7 @@ parameters containing comma-separated values.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2355,7 +2355,7 @@ parameters containing comma-separated values.</p>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"threads"</span>&gt;1,2,4&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2453,7 +2453,7 @@ of the parameters based on others.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2464,7 +2464,7 @@ of the parameters based on others.</p>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"threads_per_process"</span><span class="ot"> mode=</span><span class="st">"python"</span>&gt;int(${cores_per_node}/${processes})&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2835,14 +2835,14 @@ clause would then look like so.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>&lt;<span class="kw">do</span><span class="ot"> done_file=</span><span class="st">"ready"</span>&gt;sbatch batchscript.sh&lt;/<span class="kw">do</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3008,7 +3008,7 @@ combination with the batch script template, we can easily create the
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3053,7 +3053,7 @@ combination with the batch script template, we can easily create the
 <span id="cb12-39"><a href="#cb12-39" tabindex="-1"></a>&lt;/<span class="kw">substituteset</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
