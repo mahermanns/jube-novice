@@ -463,8 +463,41 @@ and specify a configuration to record it as part of a workflow.</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-
-</div>
+<p>Here are some examples on how to record some reproducibility-relevant
+aspacts of your workflow</p>
+<ul><li>Build flags can either be specified directly or tried to be
+extracted from generated build files (e.g., Makefiles)</li>
+<li>Versions of software and dependent librariess should be a mix of
+specified and extracted
+<ul><li>
+<strong>Note</strong>: It can be difficult to identify the
+corresponding versions of linked libraries if they didn’t record this
+information</li>
+</ul></li>
+<li>Output files are a natural part of the run directory</li>
+<li>Scale and specifics of execution can easily be defined as a
+parameter and used to generate input and run files</li>
+<li>Network libraries are commonly part of the system’s software stack
+and notoriously hard to identify on the low level
+<ul><li>
+<strong>Note</strong>: It is easy to record the version of a
+selected MPI library, while it may be harder to identify the built-time
+configuration of a pre-installed system library</li>
+<li>
+<strong>Note</strong>: Generate software environments (e.g., docker
+or apptainer images) to help conserve the execution environments</li>
+</ul></li>
+<li>OS and kernel version can be recorded from commands like
+<code>uname</code> or files in <code>/proc</code>
+<ul><li>
+<strong>Note</strong>: Make sure to record this information from the
+correct location (login nodes vs. batch nodes)</li>
+</ul></li>
+<li>Node names can be gathered after execution with scheduler tools and
+the JOB ID (extracted from submission output)</li>
+<li>Execution confguration such as pinning should be explicitly set and
+checked for validity</li>
+</ul></div>
 </div>
 </div>
 </div>
@@ -550,7 +583,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/reproducibility.html",
   "identifier": "https://mahermanns.github.io/jube-novice/reproducibility.html",
-  "dateCreated": "2025-05-21",
+  "dateCreated": "2025-05-22",
   "dateModified": "2025-05-22",
   "datePublished": "2025-05-22"
 }
