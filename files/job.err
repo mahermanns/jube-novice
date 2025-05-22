@@ -1,0 +1,103 @@
++ [[ -n '' ]]
++ global_bashenv=1
++ [[ -e /opt/lmod/lmod/init/profile ]]
++ [[ -r /opt/lmod/lmod/init/profile ]]
++ . /opt/lmod/lmod/init/profile
+++ '[' -z '' ']'
+++ LMOD_ALLOW_ROOT_USE=no
+++ '[' -n '' ']'
+++ '[' no '!=' yes ']'
++++ id -u
+++ '[' 18678 = 0 ']'
+++ '[' -z /cvmfs/software.hpc.rwth.de/Linux/RH9/x86_64/intel/sapphirerapids/modules/all ']'
+++ findExec READLINK_CMD /usr/bin/readlink readlink
+++ Nm=READLINK_CMD
+++ confPath=/usr/bin/readlink
+++ execNm=readlink
+++ eval READLINK_CMD=/usr/bin/readlink
++++ READLINK_CMD=/usr/bin/readlink
+++ '[' '!' -x /usr/bin/readlink ']'
+++ unset Nm confPath execNm
+++ findExec PS_CMD /usr/bin/ps ps
+++ Nm=PS_CMD
+++ confPath=/usr/bin/ps
+++ execNm=ps
+++ eval PS_CMD=/usr/bin/ps
++++ PS_CMD=/usr/bin/ps
+++ '[' '!' -x /usr/bin/ps ']'
+++ unset Nm confPath execNm
+++ findExec EXPR_CMD /usr/bin/expr expr
+++ Nm=EXPR_CMD
+++ confPath=/usr/bin/expr
+++ execNm=expr
+++ eval EXPR_CMD=/usr/bin/expr
++++ EXPR_CMD=/usr/bin/expr
+++ '[' '!' -x /usr/bin/expr ']'
+++ unset Nm confPath execNm
+++ findExec BASENAME_CMD /usr/bin/basename basename
+++ Nm=BASENAME_CMD
+++ confPath=/usr/bin/basename
+++ execNm=basename
+++ eval BASENAME_CMD=/usr/bin/basename
++++ BASENAME_CMD=/usr/bin/basename
+++ '[' '!' -x /usr/bin/basename ']'
+++ unset Nm confPath execNm
+++ unset -f findExec
+++ '[' -f /proc/4115301/exe ']'
++++ /usr/bin/readlink /proc/4115301/exe
+++ my_shell=/usr/bin/bash
++++ /usr/bin/expr /usr/bin/bash : '-*\(.*\)'
+++ my_shell=/usr/bin/bash
++++ /usr/bin/basename /usr/bin/bash
+++ my_shell=bash
+++ case ${my_shell} in
+++ '[' -f /opt/lmod/8.7.47/init/bash ']'
+++ . /opt/lmod/8.7.47/init/bash
++++ '[' -z '' ']'
++++ case "$-" in
++++ __lmod_vx=x
++++ '[' -n x ']'
++++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/opt/lmod/8.7.47/init/bash)
+Shell debugging restarted
++++ unset __lmod_vx
+++ unset my_shell PS_CMD EXPR_CMD BASENAME_CMD MODULEPATH_INIT LMOD_ALLOW_ROOT_USE READLINK_CMD
++ export OMP_NUM_THREADS=24
++ OMP_NUM_THREADS=24
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ srun /rwthfs/rz/cluster/home/mh269604/jube-workspace/install/gromacs-2024.5/bin/gmx_mpi mdrun -deffnm MD_5NM_WATER -nsteps 10000
+                      :-) GROMACS - gmx mdrun, 2024.5 (-:
+
+Executable:   /rwthfs/rz/cluster/home/mh269604/jube-workspace/install/gromacs-2024.5/bin/gmx_mpi
+Data prefix:  /rwthfs/rz/cluster/home/mh269604/jube-workspace/install/gromacs-2024.5
+Working dir:  /rwthfs/rz/cluster/home/mh269604/jube-workspace/jube_run/000035/000002_run/work
+Command line:
+  gmx_mpi mdrun -deffnm MD_5NM_WATER -nsteps 10000
+
+Reading file MD_5NM_WATER.tpr, VERSION 2016.5 (single precision)
+Note: file tpx version 110, software tpx version 134
+Overriding nsteps with value passed on the command line: 10000 steps, 20 ps
+Changing nstlist from 10 to 40, rlist from 1 to 1.1
+
+
+Using 1 MPI process
+Using 24 OpenMP threads 
+
+starting mdrun 'Waterbox 5nm'
+10000 steps,     20.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:       89.664        3.736     2399.9
+                 (ns/day)    (hour/ns)
+Performance:      462.556        0.052
+
+GROMACS reminds you: "We're having an information explosion, among others, and it's certainly obvious that information is of no use unless it's available." (Sister Mary Kenneth Keller)
+
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ touch ready

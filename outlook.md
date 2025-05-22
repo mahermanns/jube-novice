@@ -17,6 +17,11 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Summary
+
+In this course we created a minimal workflow to build and run the GROMACS application with a given input.
+You can download the corresponding configurations [gromacs.xml](episodes/files/gromacs.xml) and [gromacs.yaml](episodes/files/gromacs.yaml) for further exploration.
+
 ## Outlook to other topics
 
 In this workshop we have only scratched the surface of handling workflows with JUBE.

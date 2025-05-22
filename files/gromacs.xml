@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jube>
+  <benchmark name="GROMACS" outpath="jube_run">
+    <comment>MD Simulation Workflow</comment>
+    <!-- further configuration goes here -->
+
+    <parameterset name="gromacs_build_pset">
+      <parameter name="gromacs_version">2024.5</parameter>
+      <parameter name="gromacs_sources">gromacs-$gromacs_version</parameter>
+      <parameter name="gromacs_archive">$gromacs_sources.tar.gz</parameter>
+      <parameter name="gromacs_baseurl">https://ftp.gromacs.org/gromacs/</parameter>
+      <parameter name="gromacs_source_basedir">$jube_benchmark_home/sources</parameter>
+      <parameter name="gromacs_source_dir">$gromacs_source_basedir/$gromacs_sources</parameter>
+      <parameter name="gromacs_build_dir">build_$gromacs_sources</parameter>
+      <parameter name="gromacs_cmake_options">"-DGMX_MPI=on"</parameter>
+      <parameter name="gromacs_install_dir">$jube_benchmark_home/install/$gromacs_sources</parameter>
+      <parameter name="gromacs_install_indicator">.install_complete</parameter>
+      <parameter name="build_gromacs" mode="shell">if [ -e "$gromacs_install_dir/$gromacs_install_indicator" ]; then echo -n "False"; else echo -n "True"; fi</parameter>
+      <parameter name="build_gromacs" tag="rebuild">True</parameter>
+      <parameter name="gromacs_configure_log_name">cmake_configure.log</parameter>
+      <parameter name="gromacs_configure_log"  mode="python">"$gromacs_configure_log_name" if $build_gromacs else "$gromacs_install_dir/share/$gromacs_configure_log_name"</parameter>
+      <parameter name="gromacs_build_log_name">cmake_build.log</parameter>
+      <parameter name="gromacs_build_log"  mode="python">"$gromacs_build_log_name" if $build_gromacs else "$gromacs_install_dir/share/$gromacs_build_log_name"</parameter>
+      <parameter name="gromacs_install_log_name">cmake_install.log</parameter>
+      <parameter name="gromacs_install_log"  mode="python">"$gromacs_install_log_name" if $build_gromacs else "$gromacs_install_dir/share/$gromacs_install_log_name"</parameter>
+    </parameterset>
+
+    <parameterset name="gromacs_run_pset">
+      <parameter name="gromacs_data_basedir">${jube_benchmark_home}/data</parameter>
+      <parameter name="gromacs_data_file_prefix">MD_${gromacs_domain_size_uc}_WATER</parameter>
+      <parameter name="gromacs_data_file">${gromacs_data_basedir}/${gromacs_data_file_prefix}.tpr</parameter>
+      <!--  default data size is 'small' -->
+      <parameter name="gromacs_data_size">small</parameter>
+      <!--  choose a specific data size via tag -->
+      <parameter name="gromacs_data_size" tag="small">small</parameter>
+      <parameter name="gromacs_data_size" tag="medium">medium</parameter>
+      <parameter name="gromacs_data_size" tag="large">large</parameter>
+      <!--  select the domain size via data size value -->
+      <parameter name="gromacs_domain_size" mode="python">
+          {
+              "small":   "5nm",
+              "medium": "10nm",
+              "large" : "15nm"
+          }.get("${gromacs_data_size}")
+      </parameter>
+      <parameter name="gromacs_domain_size_uc"  mode="python">"${gromacs_domain_size}".upper()</parameter>
+      <parameter name="gromacs_timesteps">10000</parameter>
+    </parameterset>
+
+    <parameterset name="gromacs_system_pset" init_with="platform.xml:systemParameter">
+      <parameter name="nodes">1</parameter>
+      <parameter name="taskspernode">1</parameter>
+      <parameter name="threadspertask">24</parameter>
+    </parameterset>
+
+    <parameterset name="gromacs_exec_pset" init_with="platform.xml:executeset">
+    </parameterset>
+
+    <fileset name="gromacs_input_files">
+        <copy>$gromacs_data_file</copy>
+    </fileset>
+
+    <substituteset name="gromacs_exec_sub" init_with="platform.xml:executesub">
+        <sub source="#EXECUTABLE#" dest="${gromacs_install_dir}/bin/gmx_mpi" />
+        <sub source="#ARGS_EXECUTABLE#" dest="mdrun -deffnm ${gromacs_data_file_prefix} -nsteps ${gromacs_timesteps}" />
+    </substituteset>
+
+    <step name="prepare_sources">
+      <use>gromacs_build_pset</use>
+      <do>mkdir -p $gromacs_source_basedir</do>
+      <do active="$build_gromacs" work_dir="$gromacs_source_basedir">if [ ! -e "$gromacs_archive" ]; then wget https://ftp.gromacs.org/gromacs/$gromacs_archive; fi</do>
+      <do active="$build_gromacs" work_dir="$gromacs_source_basedir">tar xzf $gromacs_archive</do>
+    </step>
+
+    <step name="build" depend="prepare_sources">
+      <do active="$build_gromacs">if [ -d "$gromacs_install_dir" ]; then rm -rf "$gromacs_install_dir"; fi</do>
+      <do active="$build_gromacs">cmake -S $gromacs_source_dir -B $gromacs_build_dir $gromacs_cmake_options &gt; $gromacs_configure_log</do>
+      <do active="$build_gromacs">cmake --build $gromacs_build_dir --parallel 12 &gt; $gromacs_build_log</do>
+      <do active="$build_gromacs">cmake --install $gromacs_build_dir --prefix $gromacs_install_dir &gt; $gromacs_install_log</do>
+      <do active="$build_gromacs">mkdir -p "$gromacs_install_dir/share/" &amp;&amp; cp $gromacs_configure_log $gromacs_build_log $gromacs_install_log "$gromacs_install_dir/share"</do>
+      <do active="$build_gromacs">touch "$gromacs_install_dir/$gromacs_install_indicator"</do>
+    </step>
+
+    <step name="run" depend="build">
+        <use>gromacs_run_pset</use>
+        <use>gromacs_exec_pset</use>
+        <use>gromacs_system_pset</use>
+        <use>gromacs_input_files</use>
+        <use from="platform.xml">jobfiles</use>
+        <use>gromacs_exec_sub</use>
+        <do done_file="$done_file">${submit} ${submit_script}</do>
+    </step>
+
+    <patternset name="cmake_configure_patterns">
+      <pattern name="cmake_c_compiler_id">The C compiler identification is ([^ ]*)</pattern>
+      <pattern name="cmake_c_compiler_version">The C compiler identification is [^ ]* ([^ ]*)$</pattern>
+      <pattern name="cmake_cxx_compiler_id">The CXX compiler identification is ${jube_pat_wrd}</pattern>
+      <pattern name="cmake_cxx_compiler_version">The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}</pattern>
+      <pattern name="SIMD_detected">-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}</pattern>
+      <pattern name="SIMD_flags" dotall="false">-- Enabling.*SIMD instructions using CXX flags:$jube_pat_bl(.*)</pattern>
+      <pattern name="FFT_detected" dotall="false">-- Using external FFT library - (.*)$</pattern>
+    </patternset>
+
+    <patternset name="gromacs_output_patterns">
+      <pattern name="gromacs_num_procs" unit="s">Using ${jube_pat_int} MPI proc.*</pattern>
+      <pattern name="gromacs_num_threads" unit="s">Using ${jube_pat_int} OpenMP thread.*</pattern>
+      <pattern name="gromacs_core_time" unit="s">Time:\s*${jube_pat_fp}</pattern>
+      <pattern name="gromacs_wall_time" unit="s">Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
+      <pattern name="gromacs_core_perf" unit="ns/day">Time:\s*${jube_pat_fp}</pattern>
+      <pattern name="gromacs_wall_perf" unit="hours/ns">Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
+    </patternset>
+
+    <analyser name="gromacs_analyser">
+        <analyse step="build">
+            <file use="cmake_configure_patterns">$gromacs_configure_log</file>
+        </analyse>
+        <analyse step="run">
+            <file use="gromacs_output_patterns">$errlogfile</file>
+        </analyse>
+    </analyser>
+
+    <result>
+        <use>gromacs_analyser</use>
+        <table name="gromacs_build" style="pretty">
+            <column title="compiler">cmake_cxx_compiler_id</column>
+            <column title="compiler_version">cmake_cxx_compiler_version</column>
+            <column title="SIMD">SIMD_detected</column>
+            <column title="FFT">FFT_detected</column>
+        </table>
+        <table name="gromacs_run" style="pretty">
+            <column title="wp">jube_wp_id</column>
+            <column>gromacs_core_time</column>
+            <column>gromacs_wall_time</column>
+            <column>gromacs_core_perf</column>
+            <column>gromacs_wall_perf</column>
+        </table>
+    </result>
+
+  </benchmark>
+</jube>
+
