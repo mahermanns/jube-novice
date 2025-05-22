@@ -4,31 +4,29 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
-- How do I manage to run an HPC workflow reproducibly?
-- How do I easily create a scaling experiment for an HPC application?
-- How do I easily identify the optimal runtime configuration for an application
+- How can I run an HPC workflow reproducibly?
+- What is the easiest way to create a scaling experiment for an HPC application?
+- How do I identify the optimal runtime configuration for an application
   on an HPC system?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- List benefits of workflow automation.
+- Enumerate the benefits of workflow automation.
 - Describe potential use cases for HPC workflow automation using JUBE.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-The key goal of this episode is to provide potential uses cases for JUBE, and
-enable the participants to transfer these to their own workflows on HPC
-systems.
+The primary goal of this session is to present potential use cases for JUBE and enable participants to apply these insights to their own workflows on HPC systems.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When applying for computing time on HPC systems, applicants are often asked to provide measurements on different scales of parallelism.
+When applying for computing time on HPC systems, applicants are often required to provide measurements on different scales of parallelism.
 Furthermore, preparing performance measurements often involves an application-specific workflow as well as platform-specific configurations.
 The objective of this lesson is to enable users of HPC systems to run performance measurements with minimal intervention with high reproducibility, using the [Jülich Benchemarking Environment (JUBE)](https://apps.fz-juelich.de/jsc/jube/docu/index.html) [1].
 
@@ -37,7 +35,7 @@ Further use cases may include running multiple HPC workflows as integration test
 
 ::: instructor
 It is important for the learners to understand that JUBE itself **does know what
-make your workflow reproducible on its own**. 
+make your workflow reproducible on its own**.
 To create a reproducible workflow learners will have to **identify which
 information and actions make the specific workflow reproducible**, and use JUBE
 to **automatically collect and execute** those, respectively.
@@ -67,9 +65,9 @@ The key benefits of using JUBE are:
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
-Think of your own workflows on an HPC system.
+Consider your own workflows on an HPC system.
 What individual steps are involved?
-Discuss in a group.
+Please discuss this in groups.
 
 :::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::: solution
@@ -112,17 +110,16 @@ $ cd jube-workspace/
 ```output
 jube-workspace$
 ```
-
 :::
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
-- Workflow automation can assist in getting reproducible results.
-- JUBE lets you execute and manage complex workflows on HPC systems.
-- JUBE eases exploration of a large parameter space of measurements.
-- JUBE automatically isolates directories of distinct steps of a run to avoid
-  steps running in parallel to overwrite or unintentional reuse of intermediate
+- Workflow automation aids in getting reproducible results.
+- JUBE enables execution and management of complex workflows on HPC systems.
+- JUBE simplifies exploration of a large parameter space of measurements.
+- JUBE automatically isolates individual workpackages of a run in separate directories steps to avoid
+  individual concurrent workpackages to overwrite or unintentional reuse of intermediate
   data.
 
 
