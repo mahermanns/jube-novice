@@ -1,0 +1,225 @@
+-- The C compiler identification is IntelLLVM 2024.2.0
+-- The CXX compiler identification is IntelLLVM 2024.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /cvmfs/software.hpc.rwth.de/Linux/RH9/x86_64/intel/sapphirerapids/software/intel-compilers/2024.2.0/compiler/2024.2/bin/icx - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /cvmfs/software.hpc.rwth.de/Linux/RH9/x86_64/intel/sapphirerapids/software/intel-compilers/2024.2.0/compiler/2024.2/bin/icpx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CXX17_COMPILES_SIMPLY
+-- Performing Test CXX17_COMPILES_SIMPLY - Success
+-- Found Python3: /rwthfs/rz/cluster/home/mh269604/.miniforge3/envs/jube-workflow/bin/python3 (found suitable version "3.13.3", minimum required is "3.7") found components: Interpreter Development Development.Module Development.Embed 
+-- Found OpenMP_C: -fiopenmp  
+-- Found OpenMP_CXX: -fiopenmp  
+-- Found OpenMP: TRUE   
+-- Performing Test CFLAGS_WARN_NO_MISSING_FIELD_INITIALIZERS
+-- Performing Test CFLAGS_WARN_NO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test CXXFLAGS_WARN_NO_RESERVED_IDENTIFIER
+-- Performing Test CXXFLAGS_WARN_NO_RESERVED_IDENTIFIER - Success
+-- Performing Test CXXFLAGS_WARN_NO_MISSING_FIELD_INITIALIZERS
+-- Performing Test CXXFLAGS_WARN_NO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test CXXFLAGS_NO_UNROLL_WARNING
+-- Performing Test CXXFLAGS_NO_UNROLL_WARNING - Success
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file pwd.h
+-- Looking for include file pwd.h - found
+-- Looking for include file dirent.h
+-- Looking for include file dirent.h - found
+-- Looking for include file time.h
+-- Looking for include file time.h - found
+-- Looking for include file sys/time.h
+-- Looking for include file sys/time.h - found
+-- Looking for include file io.h
+-- Looking for include file io.h - not found
+-- Looking for include file sched.h
+-- Looking for include file sched.h - found
+-- Looking for include file xmmintrin.h
+-- Looking for include file xmmintrin.h - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for sysconf
+-- Looking for sysconf - found
+-- Looking for nice
+-- Looking for nice - found
+-- Looking for fsync
+-- Looking for fsync - found
+-- Looking for _fileno
+-- Looking for _fileno - not found
+-- Looking for fileno
+-- Looking for fileno - found
+-- Looking for _commit
+-- Looking for _commit - not found
+-- Looking for sigaction
+-- Looking for sigaction - found
+-- Performing Test HAVE_BUILTIN_CLZ
+-- Performing Test HAVE_BUILTIN_CLZ - Success
+-- Performing Test HAVE_BUILTIN_CLZLL
+-- Performing Test HAVE_BUILTIN_CLZLL - Success
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for feenableexcept in m
+-- Looking for feenableexcept in m - found
+-- Looking for fedisableexcept in m
+-- Looking for fedisableexcept in m - found
+-- Checking for sched.h GNU affinity API
+-- Performing Test sched_affinity_compile
+-- Performing Test sched_affinity_compile - Success
+-- Looking for include file mm_malloc.h
+-- Looking for include file mm_malloc.h - found
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - found
+-- Checking for _mm_malloc()
+-- Checking for _mm_malloc() - supported
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for memalign
+-- Looking for memalign - not found
+-- MPI is not compatible with thread-MPI. Disabling thread-MPI.
+-- Found MPI_CXX: /cvmfs/software.hpc.rwth.de/Linux/RH9/x86_64/intel/sapphirerapids/software/impi/2021.13.0-intel-compilers-2024.2.0/mpi/2021.13/lib/libmpicxx.so (found version "3.1") 
+-- Found MPI: TRUE (found version "3.1") found components: CXX 
+-- Using default binary suffix: "_mpi"
+-- Using default library suffix: "_mpi"
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test TEST_ATOMICS
+-- Performing Test TEST_ATOMICS - Success
+-- Atomic operations found
+-- Performing Test PTHREAD_SETAFFINITY
+-- Performing Test PTHREAD_SETAFFINITY - Success
+-- Detecting best SIMD instructions for this CPU
+-- Checking for GCC x86 inline asm
+-- Checking for GCC x86 inline asm - supported
+-- Detected build CPU features - aes apic avx avx2 avx512f avx512cd avx512bw avx512vl avx512bf16 avx512secondFMA clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sha sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+-- Detected build CPU brand - Intel(R) Xeon(R) Platinum 8468
+-- Performing Test C_march_skylake_avx512_FLAG_ACCEPTED
+-- Performing Test C_march_skylake_avx512_FLAG_ACCEPTED - Success
+-- Performing Test C_march_skylake_avx512_COMPILE_WORKS
+-- Performing Test C_march_skylake_avx512_COMPILE_WORKS - Success
+-- Performing Test CXX_march_skylake_avx512_FLAG_ACCEPTED
+-- Performing Test CXX_march_skylake_avx512_FLAG_ACCEPTED - Success
+-- Performing Test CXX_march_skylake_avx512_COMPILE_WORKS
+-- Performing Test CXX_march_skylake_avx512_COMPILE_WORKS - Success
+-- Detected best SIMD instructions for this CPU - AVX_512
+-- Enabling 512-bit AVX-512 SIMD instructions using CXX flags:  -march=skylake-avx512
+-- Performing Test _callconv___vectorcall
+-- Performing Test _callconv___vectorcall - Success
+-- Detected build CPU vendor - Intel
+-- Detected build CPU family - 6
+-- Detected build CPU model - 143
+-- Detected build CPU stepping - 8
+-- Checking for 64-bit off_t
+-- Checking for 64-bit off_t - present
+-- Checking for fseeko/ftello
+-- Checking for fseeko/ftello - present
+-- Checking for SIGUSR1
+-- Checking for SIGUSR1 - found
+-- Checking for pipe support
+-- Checking for system XDR support
+-- Checking for system XDR support - not present
+-- Found MKL at /cvmfs/software.hpc.rwth.de/Linux/RH9/x86_64/intel/sapphirerapids/software/imkl/2024.2.0/mkl/2024.2
+-- Looking for DftiCreateDescriptor
+-- Looking for DftiCreateDescriptor - found
+-- Using external FFT library - Intel MKL
+-- Looking for dgemm_
+-- Looking for dgemm_ - found
+-- Looking for cheev_
+-- Looking for cheev_ - found
+-- Performing Test HAS_WARNING_EVERYTHING
+-- Performing Test HAS_WARNING_EVERYTHING - Success
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS98_COMPAT
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS98_COMPAT - Success
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS98_COMPAT_PEDANTIC
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS98_COMPAT_PEDANTIC - Success
+-- Performing Test HAS_WARNING_NO_RETURN_STD_MOVE_IN_CPLUSPLUS11
+-- Performing Test HAS_WARNING_NO_RETURN_STD_MOVE_IN_CPLUSPLUS11 - Failed
+-- Performing Test HAS_WARNING_NO_SOURCE_USED_OPENMP
+-- Performing Test HAS_WARNING_NO_SOURCE_USED_OPENMP - Success
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS17_EXTENSIONS
+-- Performing Test HAS_WARNING_NO_CPLUSPLUS17_EXTENSIONS - Success
+-- Performing Test HAS_WARNING_NO_DOCUMENTATION_UNKNOWN_COMMAND
+-- Performing Test HAS_WARNING_NO_DOCUMENTATION_UNKNOWN_COMMAND - Success
+-- Performing Test HAS_WARNING_NO_COVERED_SWITCH_DEFAULT
+-- Performing Test HAS_WARNING_NO_COVERED_SWITCH_DEFAULT - Success
+-- Performing Test HAS_WARNING_NO_SWITCH_ENUM
+-- Performing Test HAS_WARNING_NO_SWITCH_ENUM - Success
+-- Performing Test HAS_WARNING_NO_SWITCH_DEFAULT
+-- Performing Test HAS_WARNING_NO_SWITCH_DEFAULT - Success
+-- Performing Test HAS_WARNING_NO_EXTRA_SEMI_STMT
+-- Performing Test HAS_WARNING_NO_EXTRA_SEMI_STMT - Success
+-- Performing Test HAS_WARNING_NO_WEAK_VTABLES
+-- Performing Test HAS_WARNING_NO_WEAK_VTABLES - Success
+-- Performing Test HAS_WARNING_NO_SHADOW
+-- Performing Test HAS_WARNING_NO_SHADOW - Success
+-- Performing Test HAS_WARNING_NO_PADDED
+-- Performing Test HAS_WARNING_NO_PADDED - Success
+-- Performing Test HAS_WARNING_NO_RESERVED_ID_MACRO
+-- Performing Test HAS_WARNING_NO_RESERVED_ID_MACRO - Success
+-- Performing Test HAS_WARNING_NO_DOUBLE_PROMOTION
+-- Performing Test HAS_WARNING_NO_DOUBLE_PROMOTION - Success
+-- Performing Test HAS_WARNING_NO_EXIT_TIME_DESTRUCTORS
+-- Performing Test HAS_WARNING_NO_EXIT_TIME_DESTRUCTORS - Success
+-- Performing Test HAS_WARNING_NO_GLOBAL_CONSTRUCTORS
+-- Performing Test HAS_WARNING_NO_GLOBAL_CONSTRUCTORS - Success
+-- Performing Test HAS_WARNING_NO_DOCUMENTATION
+-- Performing Test HAS_WARNING_NO_DOCUMENTATION - Success
+-- Performing Test HAS_WARNING_NO_FORMAT_NONLITERAL
+-- Performing Test HAS_WARNING_NO_FORMAT_NONLITERAL - Success
+-- Performing Test HAS_WARNING_NO_USED_BUT_MARKED_UNUSED
+-- Performing Test HAS_WARNING_NO_USED_BUT_MARKED_UNUSED - Success
+-- Performing Test HAS_WARNING_NO_FLOAT_EQUAL
+-- Performing Test HAS_WARNING_NO_FLOAT_EQUAL - Success
+-- Performing Test HAS_WARNING_CONDITIONAL_UNINITIALIZED
+-- Performing Test HAS_WARNING_CONDITIONAL_UNINITIALIZED - Success
+-- Performing Test HAS_WARNING_NO_CONVERSION
+-- Performing Test HAS_WARNING_NO_CONVERSION - Success
+-- Performing Test HAS_WARNING_NO_DISABLED_MACRO_EXPANSION
+-- Performing Test HAS_WARNING_NO_DISABLED_MACRO_EXPANSION - Success
+-- Performing Test HAS_WARNING_NO_UNUSED_MACROS
+-- Performing Test HAS_WARNING_NO_UNUSED_MACROS - Success
+-- Performing Test HAS_WARNING_NO_UNSAFE_BUFFER_USAGE
+-- Performing Test HAS_WARNING_NO_UNSAFE_BUFFER_USAGE - Success
+-- Performing Test HAS_WARNING_NO_ZERO_AS_NULL_POINTER_CONSTANT
+-- Performing Test HAS_WARNING_NO_ZERO_AS_NULL_POINTER_CONSTANT - Success
+-- Performing Test HAS_WARNING_NO_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS
+-- Performing Test HAS_WARNING_NO_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS - Success
+-- Performing Test HAS_WARNING_NO_UNUSED_MEMBER_FUNCTION
+-- Performing Test HAS_WARNING_NO_UNUSED_MEMBER_FUNCTION - Success
+-- Found Python: /rwthfs/rz/cluster/home/mh269604/.miniforge3/envs/jube-workflow/bin/python3.1 (found version "3.13.3") found components: Interpreter 
+-- Performing Test HAVE_NO_DEPRECATED_COPY
+-- Performing Test HAVE_NO_DEPRECATED_COPY - Success
+-- Performing Test HAS_NO_STRINGOP_TRUNCATION
+-- Performing Test HAS_NO_STRINGOP_TRUNCATION - Failed
+-- Performing Test HAS_WARNING_NO_CAST_FUNCTION_TYPE_STRICT
+-- Performing Test HAS_WARNING_NO_CAST_FUNCTION_TYPE_STRICT - Success
+-- Performing Test HAS_NO_UNUSED
+-- Performing Test HAS_NO_UNUSED - Success
+-- Performing Test HAS_NO_UNUSED_PARAMETER
+-- Performing Test HAS_NO_UNUSED_PARAMETER - Success
+-- Performing Test HAS_NO_MISSING_DECLARATIONS
+-- Performing Test HAS_NO_MISSING_DECLARATIONS - Success
+-- Performing Test HAS_NO_NULL_CONVERSIONS
+-- Performing Test HAS_NO_NULL_CONVERSIONS - Success
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Performing Test HAS_WARNING_NO_ARRAY_BOUNDS
+-- Performing Test HAS_WARNING_NO_ARRAY_BOUNDS - Success
+-- Performing Test HAS_WARNING_NO_DEPRECATED_NON_PROTOTYPE
+-- Performing Test HAS_WARNING_NO_DEPRECATED_NON_PROTOTYPE - Success
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Could NOT find Sphinx: (Required is at least version "4.0.0") (found /home/mh269604/.local/bin/sphinx-build, )
+-- Configuring done (26.0s)
+-- Generating done (31.8s)
+-- Build files have been written to: /rwthfs/rz/cluster/home/mh269604/jube-workspace/jube_run/000035/000001_build/work/build_gromacs-2024.5
