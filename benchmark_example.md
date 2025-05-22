@@ -58,7 +58,7 @@ For this, we generate a build directory in the
 jube-workspace$ cd sources
 sources$ tar xzf gromacs-2024.5.tar.gz
 sources$ cd ..
-jube-workspace$ cmake -S sources/gromacs-2024.5/ -B build_gromacs
+jube-workspace$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
 ```
 ```output
 -- The C compiler identification is IntelLLVM 2024.2.0
