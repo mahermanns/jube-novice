@@ -53,6 +53,21 @@ Potential aspects that merit recording:
 Select one or more of the aspects identified in the prior discussion and specify a configuration to record it as part of a workflow.
 ::::::::::::::::::::::::::::::::
 :::::::::::::::::::::: solution
+
+Here are some examples on how to record some reproducibility-relevant aspacts of your workflow
+
+- Build flags can either be specified directly or tried to be extracted from generated build files (e.g., Makefiles)
+- Versions of software and dependent librariess should be a mix of specified and extracted
+  - **Note**: It can be difficult to identify the corresponding versions of linked libraries if they didn't record this information
+- Output files are a natural part of the run directory
+- Scale and specifics of execution can easily be defined as a parameter and used to generate input and run files
+- Network libraries are commonly part of the system's software stack and notoriously hard to identify on the low level
+  - **Note**: It is easy to record the version of a selected MPI library, while it may be harder to identify the built-time configuration of a pre-installed system library
+  - **Note**: Generate software environments (e.g., docker or apptainer images) to help conserve the execution environments
+- OS and kernel version can be recorded from commands like `uname` or files in `/proc`
+  - **Note**: Make sure to record this information from the correct location (login nodes vs. batch nodes)
+- Node names can be gathered after execution with scheduler tools and the JOB ID (extracted from submission output)
+- Execution confguration such as pinning should be explicitly set and checked for validity
 :::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints
