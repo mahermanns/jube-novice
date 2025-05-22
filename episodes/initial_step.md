@@ -66,7 +66,7 @@ jube-workflow$ nano gromacs.xml
       <do>tar xzf gromacs-2024.5.tar.gz</do>
     </step>
     <step name="build" depend="prepare_sources">
-      <do>cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs</do>
+      <do>cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON</do>
       <do>cmake --build build_gromacs --parallel 12</do>
       <do>cmake --install build_gromacs --prefix install/gromacs-2024.5</do>
     </step>
@@ -90,7 +90,7 @@ step:
   - name: build
     depend: prepare_sources
     do:
-      - cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs
+      - cmake -S prepare_sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
       - cmake --build build_gromacs --parallel 12
       - cmake --install build_gromacs --prefix install/gromacs-2024.5
 ```
@@ -146,7 +146,7 @@ jube-workflow$ nano gromacs.xml
     <do>tar xzf $gromacs_archive</do>
   </step>
   <step name="build" depend="prepare_sources">
-    <do>cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir</do>
+    <do>cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON</do>
     <do>cmake --build $gromacs_build_dir --parallel 12</do>
     <do>cmake --install $gromacs_build_dir --prefix</do>
   </step>
@@ -254,7 +254,7 @@ jube-workflow$ nano gromacs.xml
     <do work_dir="$gromacs_source_dir">tar xzf $gromacs_archive</do>
   </step>
   <step name="build" depend="prepare_sources">
-    <do>cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir &gt; cmake_configure.log</do>
+    <do>cmake -S $gromacs_source_dir/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON &gt; cmake_configure.log</do>
     <do>cmake --build $gromacs_build_dir --parallel 12 &gt; cmake_build.log</do>
     <do>cmake --install $gromacs_build_dir --prefix &gt; cmake_install.log</do>
     <do>touch $gromacs_install_dir/.install_complete</do>
@@ -293,7 +293,7 @@ step:
   - name: build
     depend: prepare_sources
     do:
-      - cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir > cmake_configure.log
+      - cmake -S prepare_sources/$gromacs_sources/ -B $gromacs_build_dir -DGMX_MPI=ON > cmake_configure.log
       - cmake --build $gromacs_build_dir --parallel 12 > cmake_build.log
       - cmake --install $gromacs_build_dir --prefix $gromacs_install_dir > cmake_install.log
       - mkdir -p $gromacs_install_dir/share/ && cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share
