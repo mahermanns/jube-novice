@@ -118,11 +118,11 @@
   Reproducible HPC workflows using JUBE
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 92%" class="percentage">
-    92%
+<aside class="col-md-12 lesson-progress"><div style="width: 93%" class="percentage">
+    93%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 92%" aria-valuenow="92" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 93%" aria-valuenow="93" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -260,7 +260,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="run_step.html">7. Running an application</a>
+        <a href="external_data.html">7. Including external data</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -269,7 +269,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="gathering_output.html">8. Gathering output</a>
+        <a href="run_step.html">8. Running an application</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -278,7 +278,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="result_tables.html">9. Generating result tables</a>
+        <a href="output_analysis_presentation.html">9. Output analysis and presentation</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -287,7 +287,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="stage_iterations.html">10. Running stages multiple times</a>
+        <a href="reproducibility.html">10. Thoughts on reproducibility</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -348,14 +348,14 @@
         <!-- START: inst/pkgdown/templates/content-instructor.html -->
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
-        <a class="chapter-link" href="../instructor/stage_iterations.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
+        <a class="chapter-link" href="../instructor/reproducibility.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
-        <a class="chapter-link" href="../instructor/stage_iterations.html" rel="prev">
+        <a class="chapter-link" href="../instructor/reproducibility.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Running stages
+          Previous: Thoughts on
         </a>
         <a class="chapter-link float-end" href="../instructor/index.html" rel="next">
           Home
@@ -364,7 +364,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Wrap-up and outlook</h1>
-        <p>Last updated on 2025-03-26 |
+        <p>Last updated on 2025-05-22 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/outlook.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -399,7 +399,22 @@
 </div>
 </div>
 </div>
-<div id="keypoints1" class="callout keypoints">
+<p>In this workshop we have only scratched the surface of handling
+workflows with JUBE. As with every software, inspiration for creative
+uses of specific features come with experience with those features.</p>
+<p>Here is a list of some of the topics that could not be covered in
+this course</p>
+<ul><li>Running multiple iterations of a step</li>
+<li>Re-evaluating parameter values at different</li>
+<li>More advanced combinations of parameter modes</li>
+<li>Advanced tagging with <code>duplicate</code> attribute for
+parameters</li>
+<li>Multiple <code>benchmark</code> definitions per file</li>
+<li>Shared steps</li>
+<li>Step cycles</li>
+<li>Using SQlite databases for results</li>
+<li>Debugging workflows</li>
+</ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -421,14 +436,14 @@ any links that you are not going to use.
 
       </div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
-        <a class="chapter-link" href="../instructor/stage_iterations.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
+        <a class="chapter-link" href="../instructor/reproducibility.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
-        <a class="chapter-link" href="../instructor/stage_iterations.html" rel="prev">
+        <a class="chapter-link" href="../instructor/reproducibility.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Running stages
+          Previous: Thoughts on
         </a>
         <a class="chapter-link float-end" href="../instructor/index.html" rel="next">
           Home
@@ -477,8 +492,8 @@ any links that you are not going to use.
   "url": "https://mahermanns.github.io/jube-novice/instructor/outlook.html",
   "identifier": "https://mahermanns.github.io/jube-novice/instructor/outlook.html",
   "dateCreated": "2025-05-21",
-  "dateModified": "2025-03-26",
-  "datePublished": "2025-05-21"
+  "dateModified": "2025-05-22",
+  "datePublished": "2025-05-22"
 }
 
   </script><script>

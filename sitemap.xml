@@ -73,6 +73,9 @@
     <loc>https://mahermanns.github.io/jube-novice/build_step.html</loc>
   </url>
   <url>
+    <loc>https://mahermanns.github.io/jube-novice/external_data.html</loc>
+  </url>
+  <url>
     <loc>https://mahermanns.github.io/jube-novice/gathering_output.html</loc>
   </url>
   <url>
@@ -157,6 +160,9 @@
     <loc>https://mahermanns.github.io/jube-novice/instructor/build_step.html</loc>
   </url>
   <url>
+    <loc>https://mahermanns.github.io/jube-novice/instructor/external_data.html</loc>
+  </url>
+  <url>
     <loc>https://mahermanns.github.io/jube-novice/instructor/gathering_output.html</loc>
   </url>
   <url>
@@ -184,10 +190,16 @@
     <loc>https://mahermanns.github.io/jube-novice/instructor/outlook.html</loc>
   </url>
   <url>
+    <loc>https://mahermanns.github.io/jube-novice/instructor/output_analysis_presentation.html</loc>
+  </url>
+  <url>
     <loc>https://mahermanns.github.io/jube-novice/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://mahermanns.github.io/jube-novice/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://mahermanns.github.io/jube-novice/instructor/reproducibility.html</loc>
   </url>
   <url>
     <loc>https://mahermanns.github.io/jube-novice/instructor/result_tables.html</loc>
@@ -217,10 +229,16 @@
     <loc>https://mahermanns.github.io/jube-novice/outlook.html</loc>
   </url>
   <url>
+    <loc>https://mahermanns.github.io/jube-novice/output_analysis_presentation.html</loc>
+  </url>
+  <url>
     <loc>https://mahermanns.github.io/jube-novice/profiles.html</loc>
   </url>
   <url>
     <loc>https://mahermanns.github.io/jube-novice/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://mahermanns.github.io/jube-novice/reproducibility.html</loc>
   </url>
   <url>
     <loc>https://mahermanns.github.io/jube-novice/result_tables.html</loc>
