@@ -1,6 +1,6 @@
-<!-- 
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
+any links that you are not going to use.
  -->
 
 [miniconda-install]: https://www.anaconda.com/docs/getting-started/miniconda/install
@@ -13,3 +13,4 @@ any links that you are not going to use.
 [shell-novice]: https://swcarpentry.github.io/shell-novice/
 [hpc-intro]: https://carpentries-incubator.github.io/hpc-intro/
 [python-novice-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
+[carpentries-regex]: https://librarycarpentry.github.io/lc-data-intro/

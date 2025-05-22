@@ -1,0 +1,133 @@
+name: GROMACS
+outpath: jube_run
+comment: MD Simulation Workflow
+
+parameterset:
+  - name: gromacs_build_pset
+    parameter:
+      - { name: gromacs_version, _: 2024.5 }
+      - { name: gromacs_sources, _: gromacs-$gromacs_version }
+      - { name: gromacs_archive, _: $gromacs_sources.tar.gz }
+      - { name: gromacs_baseurl, _: https://ftp.gromacs.org/gromacs/ }
+      - { name: gromacs_source_basedir, _: $jube_benchmark_home/sources }
+      - { name: gromacs_source_dir, _: $gromacs_source_basedir/$gromacs_sources }
+      - { name: gromacs_build_dir, _: build_$gromacs_sources }
+      - { name: gromacs_cmake_options, _: "-DGMX_MPI=on" }
+      - { name: gromacs_install_dir, _: $jube_benchmark_home/install/$gromacs_sources }
+      - { name: gromacs_install_indicator, _: .install_complete }
+      - { name: build_gromacs, mode: shell, _: 'if [ -e "$gromacs_install_dir/$gromacs_install_indicator" ]; then echo -n "False"; else echo -n "True"; fi' }
+      - { name: build_gromacs, tag: rebuild, _: True }
+      - { name: gromacs_configure_log_name, _: cmake_configure.log }
+      - { name: gromacs_configure_log, mode: python, _: '"$gromacs_configure_log_name" if $build_gromacs else "$gromacs_install_dir/share/$gromacs_configure_log_name"' }
+  - name: gromacs_run_pset
+    parameter:
+      - { name: gromacs_data_basedir, _: '${jube_benchmark_home}/data' }
+      - { name: gromacs_data_file_prefix, _: 'MD_${gromacs_domain_size_uc}_WATER' }
+      - { name: gromacs_data_file, _: '${gromacs_data_basedir}/${gromacs_data_file_prefix}.tpr' }
+      # default data size is 'small'
+      - { name: gromacs_data_size, _: "small" }
+      # choose a specific data size via tag
+      - { name: gromacs_data_size, tag: small, _: "small" }
+      - { name: gromacs_data_size, tag: medium, _: "medium" }
+      - { name: gromacs_data_size, tag: large, _: "large" }
+      # select the domain size via data size value
+      - { name: gromacs_domain_size, mode: python, _: '
+          {
+              "small":   "5nm",
+              "medium": "10nm",
+              "large" : "15nm"
+          }.get("${gromacs_data_size}")'
+        }
+      - { name: gromacs_domain_size_uc, mode: python, _: '"${gromacs_domain_size}".upper()' }
+      - { name: gromacs_timesteps, _: 10000 }
+  - name: gromacs_system_pset
+    init_with: platform.xml:systemParameter
+    parameter:
+      - { name: nodes, _: 1 }
+      - { name: taskspernode, _: 1 }
+      - { name: threadspertask, _: 24 }
+  - name: gromacs_exec_pset
+    init_with: platform.xml:executeset
+fileset:
+  - name: gromacs_input_files
+    copy:
+      - $gromacs_data_file
+
+substituteset:
+  - name: gromacs_exec_sub
+    init_with: platform.xml:executesub
+    sub:
+      - { source: "#EXECUTABLE#", dest: "${gromacs_install_dir}/bin/gmx_mpi" }
+      - { source: "#ARGS_EXECUTABLE#", dest: "mdrun -deffnm ${gromacs_data_file_prefix} -nsteps ${gromacs_timesteps}" }
+
+step:
+  - name: prepare_sources
+    use:
+      - gromacs_build_pset
+    do:
+      - mkdir -p "$gromacs_source_basedir"
+      - { active: '$build_gromacs', work_dir: "$gromacs_source_basedir", _: "if [ ! -e '$gromacs_archive' ]; then wget https://ftp.gromacs.org/gromacs/$gromacs_archive; fi" }
+      - { active: '$build_gromacs', work_dir: "$gromacs_source_basedir", _: "tar xvzf $gromacs_archive" }
+  - name: build
+    depend: prepare_sources
+    do:
+      - { active: '$build_gromacs', _: 'if [ -d "$gromacs_install_dir" ]; then rm -rf "$gromacs_install_dir"; fi' }
+      - { active: '$build_gromacs', _: 'cmake -S $gromacs_source_dir -B $gromacs_build_dir $gromacs_cmake_options > $gromacs_configure_log' }
+      - { active: '$build_gromacs', _: 'cmake --build $gromacs_build_dir --parallel 12 > cmake_build.log' }
+      - { active: '$build_gromacs', _: 'cmake --install $gromacs_build_dir --prefix $gromacs_install_dir > cmake_install.log' }
+      - { active: '$build_gromacs', _: 'mkdir -p $gromacs_install_dir/share/ && cp cmake_configure.log cmake_build.log cmake_install.log $gromacs_install_dir/share' }
+      - { active: '$build_gromacs', _: 'touch "$gromacs_install_dir/$gromacs_install_indicator"' }
+  - name: run
+    depend: build
+    use:
+      - gromacs_run_pset
+      - gromacs_exec_pset
+      - gromacs_system_pset
+      - gromacs_input_files
+      - { from: platform.xml, _: jobfiles }
+      - gromacs_exec_sub
+    do:
+      - { done_file: ready, _: "${submit} ${submit_script}" }
+
+patternset:
+  - name: cmake_configure_patterns
+    pattern:
+      - { name: cmake_c_compiler_id, _: "The C compiler identification is ([^ ]*)" }
+      - { name: cmake_c_compiler_version, _: "The C compiler identification is [^ ]* ([^ ]*)$" }
+      - { name: cmake_cxx_compiler_id, _: "The CXX compiler identification is ${jube_pat_wrd}" }
+      - { name: cmake_cxx_compiler_version, _: "The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}" }
+  - name: gromacs_output_patterns
+    pattern:
+      - { name: gromacs_num_procs, unit: "s", _: "Using ${jube_pat_int} MPI proc.*" }
+      - { name: gromacs_num_threads, unit: "s", _: "Using ${jube_pat_int} OpenMP thread.*" }
+      - { name: gromacs_core_time, unit: "s", _: "Time:\\s*${jube_pat_fp}" }
+      - { name: gromacs_wall_time, unit: "s", _: "Time:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
+      - { name: gromacs_core_perf, unit: "ns/day",  _: "Time:\\s*${jube_pat_fp}" }
+      - { name: gromacs_wall_perf, unit: "hours/ns", _: "Time:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
+
+analyser:
+  - name: gromacs_analyser
+    analyse:
+      - step: build
+        file:
+          - { use: cmake_configure_patterns, _: $gromacs_configure_log }
+      - step: run
+        file:
+          - { use: gromacs_output_patterns, _: $errlogfile }
+result:
+  use: gromacs_analyser
+  table:
+    - name: gromacs_build
+      style: pretty
+      column:
+        - { title: "compiler", _: cmake_cxx_compiler_id }
+        - { title: "compiler version", _:  cmake_cxx_compiler_version }
+        - { title: SIMD support", _: SIMD_}
+    - name: gromacs_run
+      style: pretty
+      column:
+        - { title: "wp", _: jube_wp_id }
+        - gromacs_core_time
+        - gromacs_wall_time
+        - gromacs_core_perf
+        - gromacs_wall_perf
