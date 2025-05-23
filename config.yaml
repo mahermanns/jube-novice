@@ -65,6 +65,7 @@ episodes:
   - initial_step.md
   - basic_tags.md
   - spanning_parameter_spaces.md
+  - using_templates.md
   - external_data.md
   - run_step.md
   - output_analysis_presentation.md
