@@ -26,6 +26,10 @@ Some are pre-installed on the HPC system.
 This lesson uses the [GROMACS software][gromacs-home] as an example HPC code.
 GROMACS is a free and open-source software suite for high-performance molecular dynamics and output analysis.
 
+::::::::::::::::::::::: instructor
+We use GROMACS for this example, as it is a known code in the HPC community and readily available.
+::::::::::::::::::::::::::::::::::
+
 ## Preparing the application
 
 ### Downloading GROMACS
@@ -251,20 +255,19 @@ the `5nm` input.
 
 For this lesson the inputs do not need further pre-processing.
 
-::: challenge
+::: discussion
 
 What other types of preparation can you think of? Which prior step before
 execution does your application need?
 
-:::::: solution
+:::
+:::::: hint
 
 - Copying an input to a specific directory
 - (Re-)naming input files to specific names
 - ...
 
 ::::::
-
-:::
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints

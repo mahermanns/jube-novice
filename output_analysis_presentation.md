@@ -41,7 +41,7 @@ When included in result tables, their names can be shortened or changed complete
 For the workflow defined, we have two steps with potentially valuable information: *build* and *run*.
 Check the outputs in the corresponding workpackages and identify interesting output files to parse for meaningful data.
 ::::::::::::::::::::::::
-::::::::::::::: solution
+::::::::::::::: hint
 - The [`cmake_configure.log`](episodes/files/cmake_configure.log) in the *build* workpackage contains output from CMake that provides some insight on which libraries were found and used for the build.
 - The [`stdout`](episodes/files/stdout) in the *run* workpackage contains the output of the job submission command
 - The [`job.err`](episodes/files/job.err) in the *run* workpackage contains the GROMACS output.
