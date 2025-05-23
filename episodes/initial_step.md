@@ -25,11 +25,12 @@ GROMACS, we can define two different steps:
 - download and unpack GROMACS sources
 - building the application
 
-::: challenge
+::: discussion
 
 Why don't we have more or less steps defined?
 
-:::::: solution
+:::
+:::::: hint
 
 If we would define all actions taken in the episode manually building GROMACS
 in one step, we would always download the sources of GROMACS for each build.
@@ -39,8 +40,6 @@ independent, yet there is always a single configure phase with each make phase.
 Therefore, these two actions should be part of the same step.
 
 ::::::
-
-:::
 
 
 ::: group-tab

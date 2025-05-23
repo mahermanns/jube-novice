@@ -27,7 +27,7 @@ To increase reproducibility of a workflow, it's the user's repsonsibility to ide
 Which aspects of the build and measurement steps should be recorded to increase reproducibility of the workflow?
 
 :::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::: solution
+::::::::::::::::::: hint
 
 Potential aspects that merit recording:
 
@@ -52,7 +52,7 @@ Potential aspects that merit recording:
 :::::::::::::::::::::: challenge
 Select one or more of the aspects identified in the prior discussion and specify a configuration to record it as part of a workflow.
 ::::::::::::::::::::::::::::::::
-:::::::::::::::::::::: solution
+:::::::::::::::::::::: hint
 
 Here are some examples on how to record some reproducibility-relevant aspacts of your workflow
 

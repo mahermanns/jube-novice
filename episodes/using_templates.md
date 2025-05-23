@@ -99,9 +99,9 @@ fileset:
 Copy and link clauses can also specify additional attributes, such as `source_dir` and `target_dir` to specify a path to prefix the given filename with, `rel_path_ref` to indicate `external`reference (relative to the XML/YAML file) for the file (the default), or `internal` referencing the current working directory (to link to files of another step). See [the full description of the copy_tag for more details](https://apps.fz-juelich.de/jsc/jube/docu/glossar.html#term-copy_tag).
 ::::::::::::::::
 
-::::::::::::::::::::::::: instructors
+::::::::::::::::::::::::: instructor
 We end this without an exercise, as the next episode will include the generation of batch scripts using the above steps.
-:::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::
 
 
 

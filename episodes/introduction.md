@@ -70,7 +70,7 @@ What individual steps are involved?
 Please discuss this in groups.
 
 :::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::: solution
+:::::::::::::::::::::::: hint
 
 Steps may include:
 
