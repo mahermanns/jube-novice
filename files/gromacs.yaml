@@ -96,6 +96,9 @@ patternset:
       - { name: cmake_c_compiler_version, _: "The C compiler identification is [^ ]* ([^ ]*)$" }
       - { name: cmake_cxx_compiler_id, _: "The CXX compiler identification is ${jube_pat_wrd}" }
       - { name: cmake_cxx_compiler_version, _: "The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}" }
+      - { name: SIMD_detected, _: "-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}" }
+      - { name: SIMD_flags, dotall: false, _: "Enabling.*SIMD instructions using CXX flags:${jube_pat_bl}(.*)" }
+      - { name: FFT_detected, dotall: false, _: "Using external FFT library - (.*)$" }
   - name: gromacs_output_patterns
     pattern:
       - { name: gromacs_num_procs, unit: "s", _: "Using ${jube_pat_int} MPI proc.*" }
