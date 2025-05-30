@@ -575,7 +575,22 @@ GROMACS</a>.</p>
 <p>Data sets for this lesson are <a href="../data/gromacs-tpr-water.tar.gz">packaged with this lesson and can
 be downloaded in preparation</a>.</p>
 </section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
-<hr class="half-width"><p>The <code>environment.yaml</code> file describes a Conda virtual
+<hr class="half-width"><div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-1" type="button" role="tab" aria-controls="nav-tabpanel-1-1" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-1">
+  Conda
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-2" type="button" role="tab" aria-controls="nav-tabpanel-1-2" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-2">
+  Python Virtual Env
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<p>The <code>environment.yaml</code> file describes a Conda virtual
 environment that includes JUBE: the tool you’ll need to run this lesson,
 as well as some depencencies. To prepare the environment, <a href="https://www.anaconda.com/docs/getting-started/miniconda/install" class="external-link">install
 Miniconda following the official instructions</a>. Then download the
@@ -588,16 +603,24 @@ shell application and create a new environment:</p>
 <pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">user@cluster:~$</span> cd path/to/local/jube-novice</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">user@cluster:jube-novice$</span> conda env create <span class="at">-f</span> environment.yaml</span></code></pre>
 </div>
-<div id="callout1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<p><strong>Note:</strong> The environment will be named “jube-novice” by
+default. If you prefer another name, add
+<code>-n &lt;alternate_name&gt;</code> to the command.</p>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
-<div class="callout-content">
-<p>The environment will be named “jube-novice” by default. If you prefer
-another name, add <code>-n &lt;alternate_name&gt;</code> to the
-command.</p>
+<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<p>The <code>requirements.txt</code> file describes a Python virtual
+environment that references JUBE: the tool you’ll need to run this
+lesson, as well as some dependencies. To prepare the environment, create
+a Python virtual environment first, activate and update pip, before
+installing jube.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">user@cluster:~$</span> python <span class="at">-m</span> venv jube-venv</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">user@cluster:~$</span> source jube-venv/bin/activate</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">user@cluster:~$</span> pip install <span class="at">--upgrade</span> pip</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">user@cluster:~$</span> pip install http://apps.fz-juelich.de/jsc/jube/download.php<span class="pp">?</span>version=latest</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -653,9 +676,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/instructor/index.html",
   "identifier": "https://mahermanns.github.io/jube-novice/instructor/index.html",
-  "dateCreated": "2025-05-26",
-  "dateModified": "2025-05-27",
-  "datePublished": "2025-05-27"
+  "dateCreated": "2025-05-30",
+  "dateModified": "2025-05-30",
+  "datePublished": "2025-05-30"
 }
 
   </script><script>
