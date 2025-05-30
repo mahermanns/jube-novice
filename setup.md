@@ -41,11 +41,9 @@ user@cluster:jube-novice$ conda env create -f environment.yaml
 
 ### Python Virtual Env
 
-The `requirements.txt` file describes a Python virtual environment that
-references JUBE: the tool you'll need to run this lesson, as well as some
-dependencies.
+One option to install JUBE manually is via a Python virtual environment.
 To prepare the environment, create a Python virtual environment first, activate
-and update pip, before installing jube.
+it and update pip, before installing jube.
 
 ```sh
 user@cluster:~$ python -m venv jube-venv
