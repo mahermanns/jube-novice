@@ -18,5 +18,5 @@
 "episodes/outlook.md" "a70a07ca0d41d2656515a766c1845c25" "site/built/outlook.md" "2025-05-22"
 "instructors/instructor-notes.md" "cae72b6712578d74a49fea7513099f8c" "site/built/instructor-notes.md" "2024-03-06"
 "learners/acknowledgements.md" "f8f16e2e520a8fb2ef5c50f2a2be3926" "site/built/acknowledgements.md" "2025-03-26"
-"learners/setup.md" "2eaf6bc82beeb194a6856b4bfa9c131d" "site/built/setup.md" "2025-05-30"
+"learners/setup.md" "f8cccb06ed6e3b113347f1cca329666c" "site/built/setup.md" "2025-05-30"
 "profiles/learner-profiles.md" "82c240ac227b00b5a67fb5bc96bdc9f0" "site/built/learner-profiles.md" "2025-02-14"
