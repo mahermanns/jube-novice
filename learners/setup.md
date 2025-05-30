@@ -22,6 +22,10 @@ in preparation][data-tarball].
 
 ## Software Setup
 
+:::::::::::: tab
+
+### Conda
+
 The `environment.yaml` file describes a Conda virtual environment that includes JUBE: the tool you'll need to run this lesson, as well as some depencencies.
 To prepare the environment, [install Miniconda following the official instructions][miniconda-install].
 Then download the file [environment.yaml](files/environment.yaml), which contains
@@ -33,6 +37,21 @@ user@cluster:~$ cd path/to/local/jube-novice
 user@cluster:jube-novice$ conda env create -f environment.yaml
 ```
 
-:::::::::::::::::::: callout
-The environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
-::::::::::::::::::::
+**Note:** The environment will be named "jube-novice" by default. If you prefer another name, add `-n <alternate_name>` to the command.
+
+### Python Virtual Env
+
+The `requirements.txt` file describes a Python virtual environment that
+references JUBE: the tool you'll need to run this lesson, as well as some
+dependencies.
+To prepare the environment, create a Python virtual environment first, activate
+and update pip, before installing jube.
+
+```sh
+user@cluster:~$ python -m venv jube-venv
+user@cluster:~$ source jube-venv/bin/activate
+user@cluster:~$ pip install --upgrade pip
+user@cluster:~$ pip install http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
+```
+
+:::::::::::::::::
