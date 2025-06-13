@@ -74,6 +74,17 @@ Running workpackages (#=done, 0=wait, E=error):
 ######################################################################
 ```
 
+## Query the status of a workflow
+
+To check whether a run with a given id if finished or not, you can use the `jube status` command. Oviously, the workflow you just executed is finished.
+
+```sh
+$ jube status --id 0
+```
+```output
+FINISHED
+```
+
 ## Defining a workflow
 
 With no *steps* defined, the workflow will immediatley complete without specific actions executed, other than file JUBE-internal handling of the run and creation of corresponding directories and files.
