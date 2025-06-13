@@ -86,17 +86,19 @@ $ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
 This first step is called the *configuration* step.
 During this step CMake checks different parameters of the build environment and
 creates build systems files accordingly.
-This configuration step reveals information that may prove important for
-reproducibility later on, such as the compiler version used for the build in
+This configuration step **reveals information** that may prove **important for
+reproducibility** later on, such as the compiler version used for the build in
 the output above.
 
 ::: callout
 
+### Reproducibility Note
+
 While information about the build process is extremely important for
-reproducible performance measurements (i.e., benchmarking), it may also
-prove important for identifying sources for non-bitidentical results.
+**reproducible performance** measurements (i.e., benchmarking), it may also
+prove important for **reproducible results** when identifying sources for non-bitidentical results.
 Results are called bitidentical when two different executions of an
-application produces results that have the exact same bit pattern.
+application produce results that have the exact same bit pattern.
 
 :::
 
@@ -263,6 +265,7 @@ execution does your application need?
 :::
 :::::: hint
 
+### List of potential initial discussion points
 - Copying an input to a specific directory
 - (Re-)naming input files to specific names
 - ...

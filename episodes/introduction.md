@@ -43,6 +43,7 @@ to **automatically collect and execute** those, respectively.
 
 ::: caution
 
+### Reproducibility Note
 JUBE is an automation tool. That means, it **does not** intrinsicly make
 your workflows reproducible, but it **lets you automate** all actions that
 can make your workflow reproducible.
@@ -72,6 +73,7 @@ Please discuss this in groups.
 :::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::: hint
 
+### List of potential discussion points
 Steps may include:
 
 - Loading and preparing the software environment
@@ -91,13 +93,12 @@ The user can write configurations in XML or YAML syntax.
 It is freely [available for download](https://www.fz-juelich.de/en/ias/jsc/services/user-support/software-tools/jube/download) and also available via HPC software package managers, such as [Spack](https://spack.io/) and [EasyBuild](https://easybuild.io/).
 
 
-## Preparing your workspace
-
-In preparation of following exercises, we will create a specific workspace for our lesson workflow.
-
 ::: challenge
 
-### Creating a workspace for the lesson's exercises
+Create an empty workspace for all subsequent challenges in this lesson.
+
+
+::: solution
 
 It is best to start with an empty directory. You are free to choose any name,
 but for the sake of this lesson, we will use `jube-workspace/`.
