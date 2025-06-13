@@ -105,11 +105,13 @@ but for the sake of this lesson, we will use `jube-workspace/`.
 ```sh
 $ mkdir jube-workspace/
 $ cd jube-workspace/
+$ pwd
 ```
 
 ```output
-jube-workspace$
+/home/user/jube-workspace
 ```
+:::
 :::
 
 

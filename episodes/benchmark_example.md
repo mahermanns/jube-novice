@@ -40,9 +40,9 @@ Eventually, downloading GROMACS will be part of the overall HPC workflow, but
 you can download the 2024.5 version of GROMACS manually from the [download page of GROMACS][gromacs-download].
 
 ```sh
-jube-workspace$ mkdir sources
-jube-workspace$ cd sources
-sources$ wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz
+$ mkdir sources
+$ cd sources
+$ wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz
 ```
 
 ### Building GROMACS
@@ -59,10 +59,10 @@ during the build process stay separate from the source files of GROMACS.
 For this, we generate a build directory in the
 
 ```sh
-jube-workspace$ cd sources
-sources$ tar xzf gromacs-2024.5.tar.gz
-sources$ cd ..
-jube-workspace$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
+$ cd sources
+$ tar xzf gromacs-2024.5.tar.gz
+$ cd ..
+$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
 ```
 ```output
 -- The C compiler identification is IntelLLVM 2024.2.0
@@ -106,7 +106,7 @@ build dependencies and enabling the parallel compilation of independent
 source files, which can significantly reduce the overall build time.
 
 ```sh
-jube-workspace$ cmake --build build_gromacs --parallel 12
+$ cmake --build build_gromacs --parallel 12
 ```
 ```output
 [  0%] Generating release version information
@@ -169,7 +169,7 @@ path. You can specify the target path for the installation via the `--prefix`
 commandline option.
 
 ```sh
-jube-workspace$ cmake --install build_gromacs --prefix install/gromacs-2024.5
+$ cmake --install build_gromacs --prefix install/gromacs-2024.5
 ```
 ```output
 -- Install configuration: "Release"
@@ -220,8 +220,8 @@ After adding the `bin/` subdirectory of the install path to your `PATH`
 environment variable, GROMACS is ready to be used.
 
 ```sh
-jube-workspace$ export PATH=install/gromacs-2024.5/bin:$PATH
-jube-workspace$ which gmx
+$ export PATH=install/gromacs-2024.5/bin:$PATH
+$ which gmx
 ```
 ```output
 install/gromacs-2024.5/bin/gmx
