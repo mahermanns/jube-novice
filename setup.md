@@ -22,6 +22,12 @@ in preparation][data-tarball].
 
 ## Software Setup
 
+::::::::::::: instructor
+Software setup can take a significant amount of time, especially when users are not familiar with software setup with Conda or Python virtual environments.
+
+It is best practice to have a special session for software setup prior to the actual workshop.
+::::::::::::::::::::::::
+
 :::::::::::: tab
 
 ### Conda

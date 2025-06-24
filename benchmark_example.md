@@ -27,7 +27,7 @@ This lesson uses the [GROMACS software][gromacs-home] as an example HPC code.
 GROMACS is a free and open-source software suite for high-performance molecular dynamics and output analysis.
 
 ::::::::::::::::::::::: instructor
-We use GROMACS for this example, as it is a known code in the HPC community and readily available.
+We use GROMACS for this example, as it is a known code in the HPC community, it is readily available, and from installation to execution needs several steps in a workflow.
 ::::::::::::::::::::::::::::::::::
 
 ## Preparing the application
@@ -40,9 +40,9 @@ Eventually, downloading GROMACS will be part of the overall HPC workflow, but
 you can download the 2024.5 version of GROMACS manually from the [download page of GROMACS][gromacs-download].
 
 ```sh
-jube-workspace$ mkdir sources
-jube-workspace$ cd sources
-sources$ wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz
+$ mkdir sources
+$ cd sources
+$ wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz
 ```
 
 ### Building GROMACS
@@ -59,10 +59,10 @@ during the build process stay separate from the source files of GROMACS.
 For this, we generate a build directory in the
 
 ```sh
-jube-workspace$ cd sources
-sources$ tar xzf gromacs-2024.5.tar.gz
-sources$ cd ..
-jube-workspace$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
+$ cd sources
+$ tar xzf gromacs-2024.5.tar.gz
+$ cd ..
+$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
 ```
 ```output
 -- The C compiler identification is IntelLLVM 2024.2.0
@@ -86,17 +86,19 @@ jube-workspace$ cmake -S sources/gromacs-2024.5/ -B build_gromacs -DGMX_MPI=ON
 This first step is called the *configuration* step.
 During this step CMake checks different parameters of the build environment and
 creates build systems files accordingly.
-This configuration step reveals information that may prove important for
-reproducibility later on, such as the compiler version used for the build in
+This configuration step **reveals information** that may prove **important for
+reproducibility** later on, such as the compiler version used for the build in
 the output above.
 
 ::: callout
 
+### Reproducibility Note
+
 While information about the build process is extremely important for
-reproducible performance measurements (i.e., benchmarking), it may also
-prove important for identifying sources for non-bitidentical results.
+**reproducible performance** measurements (i.e., benchmarking), it may also
+prove important for **reproducible results** when identifying sources for non-bitidentical results.
 Results are called bitidentical when two different executions of an
-application produces results that have the exact same bit pattern.
+application produce results that have the exact same bit pattern.
 
 :::
 
@@ -106,7 +108,7 @@ build dependencies and enabling the parallel compilation of independent
 source files, which can significantly reduce the overall build time.
 
 ```sh
-jube-workspace$ cmake --build build_gromacs --parallel 12
+$ cmake --build build_gromacs --parallel 12
 ```
 ```output
 [  0%] Generating release version information
@@ -169,7 +171,7 @@ path. You can specify the target path for the installation via the `--prefix`
 commandline option.
 
 ```sh
-jube-workspace$ cmake --install build_gromacs --prefix install/gromacs-2024.5
+$ cmake --install build_gromacs --prefix install/gromacs-2024.5
 ```
 ```output
 -- Install configuration: "Release"
@@ -220,8 +222,8 @@ After adding the `bin/` subdirectory of the install path to your `PATH`
 environment variable, GROMACS is ready to be used.
 
 ```sh
-jube-workspace$ export PATH=install/gromacs-2024.5/bin:$PATH
-jube-workspace$ which gmx
+$ export PATH=install/gromacs-2024.5/bin:$PATH
+$ which gmx
 ```
 ```output
 install/gromacs-2024.5/bin/gmx
@@ -263,6 +265,7 @@ execution does your application need?
 :::
 :::::: hint
 
+### List of potential initial discussion points
 - Copying an input to a specific directory
 - (Re-)naming input files to specific names
 - ...

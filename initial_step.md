@@ -49,7 +49,7 @@ Therefore, these two actions should be part of the same step.
 Create an XML configuration for a GROMACS workflow with the name `gromacs.xml`
 with the following configuration.
 ```sh
-jube-workflow$ nano gromacs.xml
+$ nano gromacs.xml
 ```
 
 ```xml
@@ -74,7 +74,7 @@ jube-workflow$ nano gromacs.xml
 ```
 ### YAML
 ```sh
-jube-workflow$ nano gromacs.yaml
+$ nano gromacs.yaml
 ```
 ```yaml
 name: GROMACS
@@ -122,7 +122,7 @@ variables in your workflow, to make this more flexible.
 ### XML
 
 ```sh
-jube-workflow$ nano gromacs.xml
+$ nano gromacs.xml
 ```
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -155,7 +155,7 @@ jube-workflow$ nano gromacs.xml
 ### YAML
 
 ```sh
-jube-workflow$ nano gromacs.yaml
+$ nano gromacs.yaml
 ```
 ```yaml
 name: GROMACS
@@ -228,7 +228,7 @@ accidentially.
 ### XML
 
 ```sh
-jube-workflow$ nano gromacs.xml
+$ nano gromacs.xml
 ```
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -264,7 +264,7 @@ jube-workflow$ nano gromacs.xml
 ### YAML
 
 ```sh
-jube-workflow$ nano gromacs.yaml
+$ nano gromacs.yaml
 ```
 ```yaml
 name: GROMACS

@@ -74,6 +74,17 @@ Running workpackages (#=done, 0=wait, E=error):
 ######################################################################
 ```
 
+## Query the status of a workflow
+
+To check whether a run with a given id if finished or not, you can use the `jube status` command. Oviously, the workflow you just executed is finished.
+
+```sh
+$ jube status --id 0
+```
+```output
+FINISHED
+```
+
 ## Defining a workflow
 
 With no *steps* defined, the workflow will immediatley complete without specific actions executed, other than file JUBE-internal handling of the run and creation of corresponding directories and files.
@@ -102,6 +113,15 @@ bench_run               # the given outpath
 ### Log Files
 The files ending in `.log` collect details on the execution of the corresponding commands.
 Users will only be interested in evaluating these files when debugging a workflow.
+
+Instead of opening the file directly (which would be possible), you can also use the `jube log` command to show the log of a given command.
+
+```sh
+$ jube log --command run --id <id>
+```
+```output
+tbd.
+```
 
 ### Configuration Files
 The files ending in `.xml` save configuration information of the workflow.
