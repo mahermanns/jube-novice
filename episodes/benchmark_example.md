@@ -27,7 +27,7 @@ This lesson uses the [GROMACS software][gromacs-home] as an example HPC code.
 GROMACS is a free and open-source software suite for high-performance molecular dynamics and output analysis.
 
 ::::::::::::::::::::::: instructor
-We use GROMACS for this example, as it is a known code in the HPC community and readily available.
+We use GROMACS for this example, as it is a known code in the HPC community, it is readily available, and from installation to execution needs several steps in a workflow.
 ::::::::::::::::::::::::::::::::::
 
 ## Preparing the application
