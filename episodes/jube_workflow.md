@@ -114,6 +114,15 @@ bench_run               # the given outpath
 The files ending in `.log` collect details on the execution of the corresponding commands.
 Users will only be interested in evaluating these files when debugging a workflow.
 
+Instead of opening the file directly (which would be possible), you can also use the `jube log` command to show the log of a given command.
+
+```sh
+$ jube log --command run --id <id>
+```
+```output
+tbd.
+```
+
 ### Configuration Files
 The files ending in `.xml` save configuration information of the workflow.
 The file `configuration.xml` holds a copy of the overall configuration used to start the workflow.
