@@ -35,7 +35,7 @@ Further use cases may include running multiple HPC workflows as integration test
 
 ::: instructor
 It is important for the learners to understand that JUBE itself **does know what
-make your workflow reproducible on its own**.
+makes your workflow reproducible on its own**.
 To create a reproducible workflow learners will have to **identify which
 information and actions make the specific workflow reproducible**, and use JUBE
 to **automatically collect and execute** those, respectively.
@@ -124,6 +124,7 @@ $ pwd
 - JUBE automatically isolates individual workpackages of a run in separate directories steps to avoid
   individual concurrent workpackages to overwrite or unintentional reuse of intermediate
   data.
+- JUBE does not intrinsically create fully reproducible workflows, but the user has to manually record any parameters that make the workflow reproducible.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
