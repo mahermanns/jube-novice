@@ -381,7 +381,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>An example application</h1>
-        <p>Last updated on 2025-05-23 |
+        <p>Last updated on 2025-06-24 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -436,9 +436,9 @@ GROMACS</a>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> mkdir sources</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">sources$</span> wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> mkdir sources</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd sources</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -454,10 +454,10 @@ of GROMACS. For this, we generate a build directory in the</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">sources$</span> tar xzf gromacs-2024.5.tar.gz</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">sources$</span> cd ..</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd sources</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> tar xzf gromacs-2024.5.tar.gz</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">$</span> cd ..</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -481,21 +481,23 @@ of GROMACS. For this, we generate a build directory in the</p>
 </div>
 <p>This first step is called the <em>configuration</em> step. During
 this step CMake checks different parameters of the build environment and
-creates build systems files accordingly. This configuration step reveals
-information that may prove important for reproducibility later on, such
-as the compiler version used for the build in the output above.</p>
-<div id="callout1" class="callout">
+creates build systems files accordingly. This configuration step
+<strong>reveals information</strong> that may prove <strong>important
+for reproducibility</strong> later on, such as the compiler version used
+for the build in the output above.</p>
+<div id="reproducibility-note" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
+<div id="reproducibility-note" class="callout-inner">
+<h3 class="callout-title">Reproducibility Note</h3>
 <div class="callout-content">
 <p>While information about the build process is extremely important for
-reproducible performance measurements (i.e., benchmarking), it may also
-prove important for identifying sources for non-bitidentical results.
+<strong>reproducible performance</strong> measurements (i.e.,
+benchmarking), it may also prove important for <strong>reproducible
+results</strong> when identifying sources for non-bitidentical results.
 Results are called bitidentical when two different executions of an
-application produces results that have the exact same bit pattern.</p>
+application produce results that have the exact same bit pattern.</p>
 </div>
 </div>
 </div>
@@ -507,7 +509,7 @@ build time.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">--build</span> build_gromacs <span class="at">--parallel</span> 12</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> build_gromacs <span class="at">--parallel</span> 12</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -572,7 +574,7 @@ the <code>--prefix</code> commandline option.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">--install</span> build_gromacs <span class="at">--prefix</span> install/gromacs-2024.5</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--install</span> build_gromacs <span class="at">--prefix</span> install/gromacs-2024.5</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -626,8 +628,8 @@ used.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> export PATH=install/gromacs-2024.5/bin:<span class="va">$PATH</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">jube-workspace$</span> which gmx</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> export PATH=install/gromacs-2024.5/bin:<span class="va">$PATH</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">$</span> which gmx</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -685,9 +687,9 @@ before execution does your application need?</p>
 <div id="accordionHint1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
-  <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
+  <h4 class="accordion-header" id="headingHint1"> List of potential initial discussion points </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <ul><li>Copying an input to a specific directory</li>
 <li>(Re-)naming input files to specific names</li>
@@ -774,8 +776,8 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
   "identifier": "https://mahermanns.github.io/jube-novice/benchmark_example.html",
-  "dateCreated": "2025-05-30",
-  "dateModified": "2025-05-23",
+  "dateCreated": "2025-06-24",
+  "dateModified": "2025-06-24",
   "datePublished": "2025-06-24"
 }
 

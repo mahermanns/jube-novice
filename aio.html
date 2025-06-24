@@ -440,7 +440,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Introduction</a></p>
 <hr>
-<p>Last updated on 2025-05-23 |
+<p>Last updated on 2025-06-24 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -491,12 +491,12 @@ application and system benchmarking is one of its applications. Further
 use cases may include running multiple HPC workflows as integration
 tests during application development and defining reproducible execution
 workflows for data generation for publications.</p>
-<div id="caution1" class="callout caution">
+<div id="reproducibility-note" class="callout caution">
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Caution</h3>
+<div id="reproducibility-note" class="callout-inner">
+<h3 class="callout-title">Reproducibility Note</h3>
 <div class="callout-content">
 <p>JUBE is an automation tool. That means, it <strong>does not</strong>
 intrinsicly make your workflows reproducible, but it <strong>lets you
@@ -536,9 +536,9 @@ are involved? Please discuss this in groups.</p>
 <div id="accordionHint1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
-  <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
+  <h4 class="accordion-header" id="headingHint1"> List of potential discussion points </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <p>Steps may include:</p>
 <ul>
@@ -561,18 +561,25 @@ Python 2.x. The user can write configurations in XML or YAML syntax. It
 is freely <a href="https://www.fz-juelich.de/en/ias/jsc/services/user-support/software-tools/jube/download" class="external-link">available
 for download</a> and also available via HPC software package managers,
 such as <a href="https://spack.io/" class="external-link">Spack</a> and <a href="https://easybuild.io/" class="external-link">EasyBuild</a>.</p>
-<section><h2 class="section-heading" id="preparing-your-workspace">Preparing your workspace<a class="anchor" aria-label="anchor" href="#preparing-your-workspace"></a>
-</h2>
-<hr class="half-width">
-<p>In preparation of following exercises, we will create a specific
-workspace for our lesson workflow.</p>
-<div id="creating-a-workspace-for-the-lessons-exercises" class="callout discussion">
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="creating-a-workspace-for-the-lessons-exercises" class="callout-inner">
-<h3 class="callout-title">Creating a workspace for the lesson’s exercises</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
+<p>Create an empty workspace for all subsequent challenges in this
+lesson.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <p>It is best to start with an empty directory. You are free to choose
 any name, but for the sake of this lesson, we will use
 <code>jube-workspace/</code>.</p>
@@ -580,12 +587,14 @@ any name, but for the sake of this lesson, we will use
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> mkdir jube-workspace/</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd jube-workspace/</span></code></pre>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd jube-workspace/</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>jube-workspace$</code></pre>
+<pre class="output" tabindex="0"><code>/home/user/jube-workspace</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -606,17 +615,15 @@ measurements.</li>
 <li>JUBE automatically isolates individual workpackages of a run in
 separate directories steps to avoid individual concurrent workpackages
 to overwrite or unintentional reuse of intermediate data.</li>
+<li>JUBE does not intrinsically create fully reproducible workflows, but
+the user has to manually record any parameters that make the workflow
+reproducible.</li>
 </ul>
 </div>
 </div>
-</div>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
-</section></section><section id="aio-benchmark_example"><p>Content from <a href="benchmark_example.html">An example application</a></p>
+</div></section><section id="aio-benchmark_example"><p>Content from <a href="benchmark_example.html">An example application</a></p>
 <hr>
-<p>Last updated on 2025-05-23 |
+<p>Last updated on 2025-06-24 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/benchmark_example.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -671,9 +678,9 @@ GROMACS</a>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> mkdir sources</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">sources$</span> wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> mkdir sources</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd sources</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> wget https://ftp.gromacs.org/gromacs/gromacs-2024.5.tar.gz</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -690,10 +697,10 @@ of GROMACS. For this, we generate a build directory in the</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cd sources</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">sources$</span> tar xzf gromacs-2024.5.tar.gz</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">sources$</span> cd ..</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd sources</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> tar xzf gromacs-2024.5.tar.gz</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">$</span> cd ..</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-S</span> sources/gromacs-2024.5/ <span class="at">-B</span> build_gromacs <span class="at">-DGMX_MPI</span><span class="op">=</span>ON</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -717,21 +724,23 @@ of GROMACS. For this, we generate a build directory in the</p>
 </div>
 <p>This first step is called the <em>configuration</em> step. During
 this step CMake checks different parameters of the build environment and
-creates build systems files accordingly. This configuration step reveals
-information that may prove important for reproducibility later on, such
-as the compiler version used for the build in the output above.</p>
-<div id="callout1" class="callout">
+creates build systems files accordingly. This configuration step
+<strong>reveals information</strong> that may prove <strong>important
+for reproducibility</strong> later on, such as the compiler version used
+for the build in the output above.</p>
+<div id="reproducibility-note" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
+<div id="reproducibility-note" class="callout-inner">
+<h3 class="callout-title">Reproducibility Note</h3>
 <div class="callout-content">
 <p>While information about the build process is extremely important for
-reproducible performance measurements (i.e., benchmarking), it may also
-prove important for identifying sources for non-bitidentical results.
+<strong>reproducible performance</strong> measurements (i.e.,
+benchmarking), it may also prove important for <strong>reproducible
+results</strong> when identifying sources for non-bitidentical results.
 Results are called bitidentical when two different executions of an
-application produces results that have the exact same bit pattern.</p>
+application produce results that have the exact same bit pattern.</p>
 </div>
 </div>
 </div>
@@ -743,7 +752,7 @@ build time.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">--build</span> build_gromacs <span class="at">--parallel</span> 12</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--build</span> build_gromacs <span class="at">--parallel</span> 12</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -809,7 +818,7 @@ the <code>--prefix</code> commandline option.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> cmake <span class="at">--install</span> build_gromacs <span class="at">--prefix</span> install/gromacs-2024.5</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--install</span> build_gromacs <span class="at">--prefix</span> install/gromacs-2024.5</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -863,8 +872,8 @@ used.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">jube-workspace$</span> export PATH=install/gromacs-2024.5/bin:<span class="va">$PATH</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">jube-workspace$</span> which gmx</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> export PATH=install/gromacs-2024.5/bin:<span class="va">$PATH</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">$</span> which gmx</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -942,9 +951,9 @@ before execution does your application need?</p>
 <div id="accordionHint1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
-  <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
+  <h4 class="accordion-header" id="headingHint1"> List of potential initial discussion points </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <ul>
 <li>Copying an input to a specific directory</li>
@@ -980,7 +989,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-jube_workflow"><p>Content from <a href="jube_workflow.html">Working with JUBE</a></p>
 <hr>
-<p>Last updated on 2025-05-02 |
+<p>Last updated on 2025-06-24 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/jube_workflow.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1085,7 +1094,23 @@ Running workpackages (#=done, 0=wait, E=error):
 &gt;&gt;&gt;&gt;      log: jube log episodes/files/bench_run --id 0
 ######################################################################</code></pre>
 </div>
-<section><h2 class="section-heading" id="defining-a-workflow">Defining a workflow<a class="anchor" aria-label="anchor" href="#defining-a-workflow"></a>
+<section><h2 class="section-heading" id="query-the-status-of-a-workflow">Query the status of a workflow<a class="anchor" aria-label="anchor" href="#query-the-status-of-a-workflow"></a>
+</h2>
+<hr class="half-width">
+<p>To check whether a run with a given id if finished or not, you can
+use the <code>jube status</code> command. Oviously, the workflow you
+just executed is finished.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> jube status <span class="at">--id</span> 0</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">FINISHED</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="defining-a-workflow">Defining a workflow<a class="anchor" aria-label="anchor" href="#defining-a-workflow"></a>
 </h2>
 <hr class="half-width">
 <p>With no <em>steps</em> defined, the workflow will immediatley
@@ -1094,10 +1119,10 @@ JUBE-internal handling of the run and creation of corresponding
 directories and files.</p>
 <p>Looking into the benchmark output directory created, we will see
 somethin that will look similar to the following stucture:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> tree bench_run        <span class="co"># the tree command provides a nice tree for the directory structure</span></span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> tree bench_run        <span class="co"># the tree command provides a nice tree for the directory structure</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1122,6 +1147,19 @@ somethin that will look similar to the following stucture:</p>
 <p>The files ending in <code>.log</code> collect details on the
 execution of the corresponding commands. Users will only be interested
 in evaluating these files when debugging a workflow.</p>
+<p>Instead of opening the file directly (which would be possible), you
+can also use the <code>jube log</code> command to show the log of a
+given command.</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> jube log <span class="at">--command</span> run <span class="at">--id</span> <span class="op">&lt;</span>id<span class="op">&gt;</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">tbd.</span></span></code></pre>
+</div>
 </div>
 <div class="section level3">
 <h3 id="configuration-files">Configuration Files<a class="anchor" aria-label="anchor" href="#configuration-files"></a>
@@ -1162,31 +1200,31 @@ sets</em>. Let’s define a minimal set of parameters for our initial
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
 <div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span>&gt;</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span>&gt;</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1221,37 +1259,37 @@ suffix.</p>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
 <div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>&lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"my_pset"</span>&gt;</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  ...</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>&lt;/<span class="kw">parameterset</span>&gt;</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>&lt;<span class="kw">fileset</span><span class="ot"> name=</span><span class="st">"my_files"</span>&gt;</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  ...</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>&lt;/<span class="kw">fileset</span>&gt;</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"mystep"</span>&gt;</span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_pset&lt;/<span class="kw">use</span>&gt;</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_files&lt;/<span class="kw">use</span>&gt;</span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>&lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"my_pset"</span>&gt;</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  ...</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>&lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>&lt;<span class="kw">fileset</span><span class="ot"> name=</span><span class="st">"my_files"</span>&gt;</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  ...</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>&lt;/<span class="kw">fileset</span>&gt;</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"mystep"</span>&gt;</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_pset&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  &lt;<span class="kw">use</span>&gt;my_files&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_pset</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">fileset</span><span class="kw">:</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_files</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> mystep</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="at">    </span><span class="fu">use</span><span class="kw">:</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="at">        my_pset</span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="at">        my_files</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_pset</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="at">    ...</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="fu">fileset</span><span class="kw">:</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> my_files</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> mystep</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="fu">use</span><span class="kw">:</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">        my_pset</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">        my_files</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1311,40 +1349,40 @@ value prior to the execution</p>
 </nav><div id="nav-tabContent-4" class="tab-content">
 <div id="nav-tabpanel-4-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-XML">
 <p>You can download the full definition so far as <a href="files/hello_world.xml">hello_world.xml</a>.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"hello_pset"</span>&gt;</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"print_message"</span>&gt;</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;hello_pset&lt;/<span class="kw">use</span>&gt;</span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;echo $message&lt;/<span class="kw">do</span>&gt;</span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>&lt;<span class="kw">jube</span>&gt;</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  &lt;<span class="kw">benchmark</span><span class="ot"> name=</span><span class="st">"hello_world"</span><span class="ot"> outpath=</span><span class="st">"bench_run"</span>&gt;</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    &lt;<span class="kw">comment</span>&gt;A simple workflow example&lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="co">&lt;!-- further configuration goes here --&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>  &lt;/<span class="kw">benchmark</span>&gt;</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>  &lt;<span class="kw">parameterset</span><span class="ot"> name=</span><span class="st">"hello_pset"</span>&gt;</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>    &lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"message"</span>&gt;Hello World&lt;/<span class="kw">parameter</span>&gt;</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>  &lt;/<span class="kw">parameterset</span>&gt;</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>  &lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"print_message"</span>&gt;</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;hello_pset&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>    &lt;<span class="kw">do</span>&gt;echo $message&lt;/<span class="kw">do</span>&gt;</span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>  &lt;/<span class="kw">step</span>&gt;</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-4-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-YAML">
 <p>You can download the full definition so far as <a href="files/hello_world.yaml">hello_world.yaml</a>.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> print_message</span></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="at">  </span><span class="fu">do</span><span class="kw">:</span><span class="at"> echo $message</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_world</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> bench_run</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">comment</span><span class="kw">:</span><span class="at"> A simple workflow example</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="fu">parameterset</span><span class="kw">:</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="at">  </span><span class="fu">parameter</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> message</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> Hello World</span><span class="kw">}</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> print_message</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> hello_pset</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="at">  </span><span class="fu">do</span><span class="kw">:</span><span class="at"> echo $message</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1370,28 +1408,28 @@ dependencies with the <strong>depend</strong> keyword.</p>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
 <div id="nav-tabpanel-5-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-XML">
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"initial_step"</span>&gt;</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>...</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"dependent_step"</span><span class="ot"> depend=</span><span class="st">"initial_step"</span>&gt;</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>...</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"initial_step"</span>&gt;</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>...</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>&lt;<span class="kw">step</span><span class="ot"> name=</span><span class="st">"dependent_step"</span><span class="ot"> depend=</span><span class="st">"initial_step"</span>&gt;</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>...</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-5-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-YAML">
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">  </span><span class="fu">-name</span><span class="kw">:</span><span class="at"> initial_step</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">...</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">  -name: dependent_step</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">   depend: initial_step</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">...</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="at">  </span><span class="fu">-name</span><span class="kw">:</span><span class="at"> initial_step</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="co">...</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co">  -name: dependent_step</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">   depend: initial_step</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co">...</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1448,7 +1486,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-initial_step"><p>Content from <a href="initial_step.html">An initial workflow specification</a></p>
 <hr>
-<p>Last updated on 2025-05-23 |
+<p>Last updated on 2025-06-24 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/initial_step.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1506,7 +1544,7 @@ compiling GROMACS, we can define two different steps:</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <p>If we would define all actions taken in the episode manually building
 GROMACS in one step, we would always download the sources of GROMACS for
@@ -1533,13 +1571,13 @@ should be part of the same step.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
 <p>Create an XML configuration for a GROMACS workflow with the name
 <code>gromacs.xml</code> with the following configuration.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.xml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.xml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1564,11 +1602,11 @@ should be part of the same step.</p>
 <span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.yaml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.yaml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1625,11 +1663,11 @@ for key variables in your workflow, to make this more flexible.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.xml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.xml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1661,11 +1699,11 @@ for key variables in your workflow, to make this more flexible.</p>
 <span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.yaml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.yaml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1760,11 +1798,11 @@ installations accidentially.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.xml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.xml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1799,11 +1837,11 @@ installations accidentially.</p>
 <span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">jube-workflow$</span> nano gromacs.yaml</span></code></pre>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> nano gromacs.yaml</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2442,7 +2480,7 @@ socket (i.e., an even number of processes per node).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>With the constraints above, a configuration has</p>
 <ol style="list-style-type: decimal">
@@ -2577,7 +2615,7 @@ substitution.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2585,7 +2623,7 @@ substitution.</p>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  &lt;<span class="kw">sub</span><span class="ot"> source=</span><span class="st">"DYNAMIC_VAR_B#"</span><span class="ot"> dest=</span><span class="st">"$param_b"</span> /&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2615,7 +2653,7 @@ same text replacements to all files listed.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2625,7 +2663,7 @@ same text replacements to all files listed.</p>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>&lt;/<span class="kw">substituteset</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2677,7 +2715,7 @@ combination of copy and link commands that suits the workflow best.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2687,7 +2725,7 @@ combination of copy and link commands that suits the workflow best.</p>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>&lt;/<span class="kw">fileset</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3492,7 +3530,7 @@ parse for meaningful data.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <ul>
 <li>The <a href="files/cmake_configure.log"><code>cmake_configure.log</code></a> in
@@ -3539,7 +3577,7 @@ extracting.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3554,7 +3592,7 @@ extracting.</p>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    &lt;/<span class="kw">patternset</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3631,7 +3669,7 @@ globally.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3642,7 +3680,7 @@ globally.</p>
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>&lt;/<span class="kw">analyser</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3677,14 +3715,14 @@ specification.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> jube analyse <span class="at">-u</span> gromacs.xml jube_run <span class="at">--id</span> 35</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3776,7 +3814,7 @@ specification.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-XML">
+<div id="nav-tabpanel-4-XML" class="tab-pane show active" aria-labelledby="nav-tab-4-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3792,7 +3830,7 @@ specification.</p>
 <span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="er">&lt;</span>/result&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-4-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-YAML">
+<div id="nav-tabpanel-4-YAML" class="tab-pane" aria-labelledby="nav-tab-4-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3847,7 +3885,7 @@ executed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="tabs">
 <nav><div id="nav-tab-5" class="nav nav-tabs" role="tablist">
@@ -3863,7 +3901,7 @@ executed.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-XML">
+<div id="nav-tabpanel-5-XML" class="tab-pane show active" aria-labelledby="nav-tab-5-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3894,7 +3932,7 @@ executed.</p>
 <span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>&lt;/<span class="kw">result</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-5-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-YAML">
+<div id="nav-tabpanel-5-YAML" class="tab-pane" aria-labelledby="nav-tab-5-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -4026,7 +4064,7 @@ to increase reproducibility of the workflow?</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Potential aspects that merit recording:</p>
 <ul>
@@ -4070,7 +4108,7 @@ and specify a configuration to record it as part of a workflow.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint2" aria-expanded="false" aria-controls="collapseHint2">
   <h4 class="accordion-header" id="headingHint2"> Give me a hint </h4>
 </button>
-<div id="collapseHint2" class="accordion-collapse collapse" data-bs-parent="#accordionHint2" aria-labelledby="headingHint2">
+<div id="collapseHint2" class="accordion-collapse collapse" aria-labelledby="headingHint2" data-bs-parent="#accordionHint2">
 <div class="accordion-body">
 <p>Here are some examples on how to record some reproducibility-relevant
 aspacts of your workflow</p>
@@ -4284,7 +4322,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/aio.html",
   "identifier": "https://mahermanns.github.io/jube-novice/aio.html",
-  "dateCreated": "2025-05-30",
+  "dateCreated": "2025-06-24",
   "dateModified": "2025-06-24",
   "datePublished": "2025-06-24"
 }
