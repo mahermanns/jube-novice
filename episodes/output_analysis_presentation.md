@@ -258,6 +258,23 @@ The `wp` column references a JUBE variable identifying the *workpackage* of the 
 :::: group-tab
 ### XML
 ```xml
+<patternset name="cmake_configure_patterns">
+    <pattern name="cmake_c_compiler_id">The C compiler identification is ([^ ]*)</pattern>
+    <pattern name="cmake_c_compiler_version">The C compiler identification is [^ ]* ([^ ]*)$</pattern>
+    <pattern name="cmake_cxx_compiler_id">The CXX compiler identification is ${jube_pat_wrd}</pattern>
+    <pattern name="cmake_cxx_compiler_version">The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}</pattern>
+    <pattern name="SIMD_detected">-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}</pattern>
+    <pattern name="SIMD_flags" dotall="false">-- Enabling.*SIMD instructions using CXX flags:$jube_pat_bl(.*)</pattern>
+    <pattern name="FFT_detected" dotall="false">-- Using external FFT library - (.*)$</pattern>
+</patternset>
+<patternset name="gromacs_output_patterns">
+    <pattern name="gromacs_num_procs" unit="s">Using ${jube_pat_int} MPI proc.*</pattern>
+    <pattern name="gromacs_num_threads" unit="s">Using ${jube_pat_int} OpenMP thread.*</pattern>
+    <pattern name="gromacs_core_time" unit="s">Time:\s*${jube_pat_fp}</pattern>
+    <pattern name="gromacs_wall_time" unit="s">Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
+    <pattern name="gromacs_core_perf" unit="ns/day">Performance:\s*${jube_pat_fp}</pattern>
+    <pattern name="gromacs_wall_perf" unit="hours/ns">Performance:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
+</patternset>
 <analyser name="gromacs_analyser">
     <analyse step="build">
         <file use="cmake_configure_patterns">$gromacs_configure_log</file>
@@ -286,6 +303,25 @@ The `wp` column references a JUBE variable identifying the *workpackage* of the 
 ```
 ### YAML
 ```yaml
+patternset:
+  - name: cmake_configure_patterns
+    pattern:
+      - { name: cmake_c_compiler_id, _: "The C compiler identification is ([^ ]*)" }
+      - { name: cmake_c_compiler_version, _: "The C compiler identification is [^ ]* ([^ ]*)$" }
+      - { name: cmake_cxx_compiler_id, _: "The CXX compiler identification is ${jube_pat_wrd}" }
+      - { name: cmake_cxx_compiler_version, _: "The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}" }
+      - { name: SIMD_detected, _: "-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}" }
+      - { name: SIMD_flags, dotall: false, _: "Enabling.*SIMD instructions using CXX flags:${jube_pat_bl}(.*)" }
+      - { name: FFT_detected, dotall: false, _: "Using external FFT library - (.*)$" }
+  - name: gromacs_output_patterns
+    pattern:
+      - { name: gromacs_num_procs, unit: "s", _: "Using ${jube_pat_int} MPI proc.*" }
+      - { name: gromacs_num_threads, unit: "s", _: "Using ${jube_pat_int} OpenMP thread.*" }
+      - { name: gromacs_core_time, unit: "s", _: "Time:\\s*${jube_pat_fp}" }
+      - { name: gromacs_wall_time, unit: "s", _: "Time:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
+      - { name: gromacs_core_perf, unit: "ns/day",  _: "Performance:\\s*${jube_pat_fp}" }
+      - { name: gromacs_wall_perf, unit: "hours/ns", _: "Performance:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
+
 analyser:
   - name: gromacs_analyser
     analyse:
