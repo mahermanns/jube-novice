@@ -485,7 +485,7 @@ JUBE.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The primary goal of this session is to present potential use cases
 for JUBE and enable participants to apply these insights to their own
@@ -513,7 +513,7 @@ workflows for data generation for publications.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>It is important for the learners to understand that JUBE itself
 <strong>does know what makes your workflow reproducible on its
@@ -572,7 +572,7 @@ are involved? Please discuss this in groups.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> List of potential discussion points </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Steps may include:</p>
 <ul>
@@ -612,7 +612,7 @@ lesson.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>It is best to start with an empty directory. You are free to choose
 any name, but for the sake of this lesson, we will use
@@ -704,7 +704,7 @@ analysis.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>We use GROMACS for this example, as it is a known code in the HPC
 community, it is readily available, and from installation to execution
@@ -1002,7 +1002,7 @@ before execution does your application need?</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> List of potential initial discussion points </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <ul>
 <li>Copying an input to a specific directory</li>
@@ -1595,7 +1595,7 @@ compiling GROMACS, we can define two different steps:</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>If we would define all actions taken in the episode manually building
 GROMACS in one step, we would always download the sources of GROMACS for
@@ -1622,7 +1622,7 @@ should be part of the same step.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <p>Create an XML configuration for a GROMACS workflow with the name
 <code>gromacs.xml</code> with the following configuration.</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -1653,7 +1653,7 @@ should be part of the same step.</p>
 <span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1714,7 +1714,7 @@ for key variables in your workflow, to make this more flexible.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1750,7 +1750,7 @@ for key variables in your workflow, to make this more flexible.</p>
 <span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1849,7 +1849,7 @@ installations accidentially.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1888,7 +1888,7 @@ installations accidentially.</p>
 <span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2043,14 +2043,14 @@ different version of the software.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"gromacs_version"</span>&gt;2024.1&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2108,7 +2108,7 @@ workflow run.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2116,7 +2116,7 @@ workflow run.</p>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"var"</span>&gt;two&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2163,14 +2163,14 @@ definitions:</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-3" class="tab-content">
-<div id="nav-tabpanel-3-XML" class="tab-pane show active" aria-labelledby="nav-tab-3-XML" role="tabpanel">
+<div id="nav-tabpanel-3-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-3-XML">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"var"</span><span class="ot"> tag=</span><span class="st">"a,!b,c"</span>&gt;...&lt;/<span class="kw">parameter</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-3-YAML" class="tab-pane" aria-labelledby="nav-tab-3-YAML" role="tabpanel">
+<div id="nav-tabpanel-3-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-3-YAML">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2216,7 +2216,7 @@ default the version 2024.5 is chosen, but in the presense of the tag
 </button>
 </div>
 </nav><div id="nav-tabContent-4" class="tab-content">
-<div id="nav-tabpanel-4-XML" class="tab-pane show active" aria-labelledby="nav-tab-4-XML" role="tabpanel">
+<div id="nav-tabpanel-4-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-4-XML">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2224,7 +2224,7 @@ default the version 2024.5 is chosen, but in the presense of the tag
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>&lt;<span class="kw">parameter</span><span class="ot"> name=</span><span class="st">"gromacs_version"</span><span class="ot"> tag=</span><span class="st">"v2024.1"</span>&gt;2024.1&gt;/parameter&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-4-YAML" class="tab-pane" aria-labelledby="nav-tab-4-YAML" role="tabpanel">
+<div id="nav-tabpanel-4-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-4-YAML">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2260,7 +2260,7 @@ command line when running a workflow.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-5" class="tab-content">
-<div id="nav-tabpanel-5-XML" class="tab-pane show active" aria-labelledby="nav-tab-5-XML" role="tabpanel">
+<div id="nav-tabpanel-5-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-5-XML">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2304,7 +2304,7 @@ command line when running a workflow.</p>
 <span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>&lt;/<span class="kw">jube</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-5-YAML" class="tab-pane" aria-labelledby="nav-tab-5-YAML" role="tabpanel">
+<div id="nav-tabpanel-5-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-5-YAML">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2934,7 +2934,7 @@ file as part of a step definition.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-XML">
+<div id="nav-tabpanel-1-XML" class="tab-pane show active" aria-labelledby="nav-tab-1-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2965,7 +2965,7 @@ file as part of a step definition.</p>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-YAML">
+<div id="nav-tabpanel-1-YAML" class="tab-pane" aria-labelledby="nav-tab-1-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3031,7 +3031,7 @@ configuration entity in JUBE.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-XML" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-XML">
+<div id="nav-tabpanel-2-XML" class="tab-pane show active" aria-labelledby="nav-tab-2-XML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3048,7 +3048,7 @@ configuration entity in JUBE.</p>
 <span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>&lt;/<span class="kw">step</span>&gt;</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-YAML" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-YAML">
+<div id="nav-tabpanel-2-YAML" class="tab-pane" aria-labelledby="nav-tab-2-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3535,7 +3535,7 @@ any links that you are not going to use.
  -->
 </div></section><section id="aio-output_analysis_presentation"><p>Content from <a href="output_analysis_presentation.html">Output analysis and presentation</a></p>
 <hr>
-<p>Last updated on 2025-05-23 |
+<p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/mahermanns/jube-novice/edit/main/episodes/output_analysis_presentation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -3627,7 +3627,7 @@ parse for meaningful data.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <ul>
 <li>The <a href="../files/cmake_configure.log"><code>cmake_configure.log</code></a> in
@@ -3982,7 +3982,7 @@ executed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="tabs">
 <nav><div id="nav-tab-5" class="nav nav-tabs" role="tablist">
@@ -4002,63 +4002,99 @@ executed.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">XML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>&lt;<span class="kw">analyser</span><span class="ot"> name=</span><span class="st">"gromacs_analyser"</span>&gt;</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>    &lt;<span class="kw">analyse</span><span class="ot"> step=</span><span class="st">"build"</span>&gt;</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>        &lt;<span class="kw">file</span><span class="ot"> use=</span><span class="st">"cmake_configure_patterns"</span>&gt;$gromacs_configure_log&lt;/<span class="kw">file</span>&gt;</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>    &lt;/<span class="kw">analyse</span>&gt;</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>    &lt;<span class="kw">analyse</span><span class="ot"> step=</span><span class="st">"run"</span>&gt;</span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>        &lt;<span class="kw">file</span><span class="ot"> use=</span><span class="st">"gromacs_output_patterns"</span>&gt;$errlogfile&lt;/<span class="kw">file</span>&gt;</span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    &lt;/<span class="kw">analyse</span>&gt;</span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>&lt;/<span class="kw">analyser</span>&gt;</span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>&lt;<span class="kw">result</span>&gt;</span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;gromacs_analyser&lt;/<span class="kw">use</span>&gt;</span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>    &lt;<span class="kw">table</span><span class="ot"> name=</span><span class="st">"gromacs_build"</span><span class="ot"> style=</span><span class="st">"pretty"</span>&gt;</span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"compiler"</span>&gt;cmake_cxx_compiler_id&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"compiler_version"</span>&gt;cmake_cxx_compiler_version&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"SIMD"</span>&gt;SIMD_detected&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"FFT"</span>&gt;FFT_detected&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>    &lt;/<span class="kw">table</span>&gt;</span>
-<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>    &lt;<span class="kw">table</span><span class="ot"> name=</span><span class="st">"gromacs_run"</span><span class="ot"> style=</span><span class="st">"pretty"</span>&gt;</span>
-<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"wp"</span>&gt;jube_wp_id&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_core_time&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_wall_time&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_core_perf&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_wall_perf&lt;/<span class="kw">column</span>&gt;</span>
-<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a>    &lt;/<span class="kw">table</span>&gt;</span>
-<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>&lt;/<span class="kw">result</span>&gt;</span></code></pre>
+<pre class="sourceCode xml" tabindex="0"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>&lt;<span class="kw">patternset</span><span class="ot"> name=</span><span class="st">"cmake_configure_patterns"</span>&gt;</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"cmake_c_compiler_id"</span>&gt;The C compiler identification is ([^ ]*)&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"cmake_c_compiler_version"</span>&gt;The C compiler identification is [^ ]* ([^ ]*)$&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"cmake_cxx_compiler_id"</span>&gt;The CXX compiler identification is ${jube_pat_wrd}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"cmake_cxx_compiler_version"</span>&gt;The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"SIMD_detected"</span>&gt;-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"SIMD_flags"</span><span class="ot"> dotall=</span><span class="st">"false"</span>&gt;-- Enabling.*SIMD instructions using CXX flags:$jube_pat_bl(.*)&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"FFT_detected"</span><span class="ot"> dotall=</span><span class="st">"false"</span>&gt;-- Using external FFT library - (.*)$&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>&lt;/<span class="kw">patternset</span>&gt;</span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>&lt;<span class="kw">patternset</span><span class="ot"> name=</span><span class="st">"gromacs_output_patterns"</span>&gt;</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_num_procs"</span><span class="ot"> unit=</span><span class="st">"s"</span>&gt;Using ${jube_pat_int} MPI proc.*&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_num_threads"</span><span class="ot"> unit=</span><span class="st">"s"</span>&gt;Using ${jube_pat_int} OpenMP thread.*&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_core_time"</span><span class="ot"> unit=</span><span class="st">"s"</span>&gt;Time:\s*${jube_pat_fp}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_wall_time"</span><span class="ot"> unit=</span><span class="st">"s"</span>&gt;Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_core_perf"</span><span class="ot"> unit=</span><span class="st">"ns/day"</span>&gt;Performance:\s*${jube_pat_fp}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>    &lt;<span class="kw">pattern</span><span class="ot"> name=</span><span class="st">"gromacs_wall_perf"</span><span class="ot"> unit=</span><span class="st">"hours/ns"</span>&gt;Performance:\s*${jube_pat_nfp}\s*${jube_pat_fp}&lt;/<span class="kw">pattern</span>&gt;</span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>&lt;/<span class="kw">patternset</span>&gt;</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>&lt;<span class="kw">analyser</span><span class="ot"> name=</span><span class="st">"gromacs_analyser"</span>&gt;</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>    &lt;<span class="kw">analyse</span><span class="ot"> step=</span><span class="st">"build"</span>&gt;</span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>        &lt;<span class="kw">file</span><span class="ot"> use=</span><span class="st">"cmake_configure_patterns"</span>&gt;$gromacs_configure_log&lt;/<span class="kw">file</span>&gt;</span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>    &lt;/<span class="kw">analyse</span>&gt;</span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>    &lt;<span class="kw">analyse</span><span class="ot"> step=</span><span class="st">"run"</span>&gt;</span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a>        &lt;<span class="kw">file</span><span class="ot"> use=</span><span class="st">"gromacs_output_patterns"</span>&gt;$errlogfile&lt;/<span class="kw">file</span>&gt;</span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a>    &lt;/<span class="kw">analyse</span>&gt;</span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>&lt;/<span class="kw">analyser</span>&gt;</span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a>&lt;<span class="kw">result</span>&gt;</span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a>    &lt;<span class="kw">use</span>&gt;gromacs_analyser&lt;/<span class="kw">use</span>&gt;</span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a>    &lt;<span class="kw">table</span><span class="ot"> name=</span><span class="st">"gromacs_build"</span><span class="ot"> style=</span><span class="st">"pretty"</span>&gt;</span>
+<span id="cb15-30"><a href="#cb15-30" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"compiler"</span>&gt;cmake_cxx_compiler_id&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-31"><a href="#cb15-31" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"compiler_version"</span>&gt;cmake_cxx_compiler_version&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-32"><a href="#cb15-32" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"SIMD"</span>&gt;SIMD_detected&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-33"><a href="#cb15-33" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"FFT"</span>&gt;FFT_detected&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-34"><a href="#cb15-34" tabindex="-1"></a>    &lt;/<span class="kw">table</span>&gt;</span>
+<span id="cb15-35"><a href="#cb15-35" tabindex="-1"></a>    &lt;<span class="kw">table</span><span class="ot"> name=</span><span class="st">"gromacs_run"</span><span class="ot"> style=</span><span class="st">"pretty"</span>&gt;</span>
+<span id="cb15-36"><a href="#cb15-36" tabindex="-1"></a>        &lt;<span class="kw">column</span><span class="ot"> title=</span><span class="st">"wp"</span>&gt;jube_wp_id&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-37"><a href="#cb15-37" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_core_time&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-38"><a href="#cb15-38" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_wall_time&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-39"><a href="#cb15-39" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_core_perf&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-40"><a href="#cb15-40" tabindex="-1"></a>        &lt;<span class="kw">column</span>&gt;gromacs_wall_perf&lt;/<span class="kw">column</span>&gt;</span>
+<span id="cb15-41"><a href="#cb15-41" tabindex="-1"></a>    &lt;/<span class="kw">table</span>&gt;</span>
+<span id="cb15-42"><a href="#cb15-42" tabindex="-1"></a>&lt;/<span class="kw">result</span>&gt;</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-5-YAML" class="tab-pane" aria-labelledby="nav-tab-5-YAML" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">analyser</span><span class="kw">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_analyser</span></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="at">    </span><span class="fu">analyse</span><span class="kw">:</span></span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> build</span></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="at">        </span><span class="fu">file</span><span class="kw">:</span></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">use</span><span class="kw">:</span><span class="at"> cmake_configure_patterns</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> $gromacs_configure_log </span><span class="kw">}</span></span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> run</span></span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="at">        </span><span class="fu">file</span><span class="kw">:</span></span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">use</span><span class="kw">:</span><span class="at"> gromacs_output_patterns</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> $errlogfile </span><span class="kw">}</span></span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="fu">result</span><span class="kw">:</span></span>
-<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> gromacs_analyser</span></span>
-<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="at">  </span><span class="fu">table</span><span class="kw">:</span></span>
-<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_build</span></span>
-<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a><span class="at">      </span><span class="fu">style</span><span class="kw">:</span><span class="at"> pretty</span></span>
-<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="at">      </span><span class="fu">column</span><span class="kw">:</span></span>
-<span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"compiler"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> cmake_cxx_compiler_id </span><span class="kw">}</span></span>
-<span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"compiler version"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at">  cmake_cxx_compiler_version </span><span class="kw">}</span></span>
-<span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> SIMD support"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> SIMD_</span><span class="kw">}</span></span>
-<span id="cb16-19"><a href="#cb16-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_run</span></span>
-<span id="cb16-20"><a href="#cb16-20" tabindex="-1"></a><span class="at">      </span><span class="fu">style</span><span class="kw">:</span><span class="at"> pretty</span></span>
-<span id="cb16-21"><a href="#cb16-21" tabindex="-1"></a><span class="at">      </span><span class="fu">column</span><span class="kw">:</span></span>
-<span id="cb16-22"><a href="#cb16-22" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"wp"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> jube_wp_id </span><span class="kw">}</span></span>
-<span id="cb16-23"><a href="#cb16-23" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_core_time</span></span>
-<span id="cb16-24"><a href="#cb16-24" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_wall_time</span></span>
-<span id="cb16-25"><a href="#cb16-25" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_core_perf</span></span>
-<span id="cb16-26"><a href="#cb16-26" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_wall_perf</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">patternset</span><span class="kw">:</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cmake_configure_patterns</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="at">    </span><span class="fu">pattern</span><span class="kw">:</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cmake_c_compiler_id</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"The C compiler identification is ([^ ]*)"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cmake_c_compiler_version</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"The C compiler identification is [^ ]* ([^ ]*)$"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cmake_cxx_compiler_id</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"The CXX compiler identification is ${jube_pat_wrd}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> cmake_cxx_compiler_version</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"The CXX compiler identification is ${jube_pat_nwrd} ${jube_pat_wrd}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> SIMD_detected</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"-- Detected best SIMD instructions for this CPU - ${jube_pat_wrd}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> SIMD_flags</span><span class="kw">,</span><span class="at"> </span><span class="fu">dotall</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Enabling.*SIMD instructions using CXX flags:${jube_pat_bl}(.*)"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> FFT_detected</span><span class="kw">,</span><span class="at"> </span><span class="fu">dotall</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Using external FFT library - (.*)$"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_output_patterns</span></span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="at">    </span><span class="fu">pattern</span><span class="kw">:</span></span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_num_procs</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"s"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Using ${jube_pat_int} MPI proc.*"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_num_threads</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"s"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Using ${jube_pat_int} OpenMP thread.*"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_core_time</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"s"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Time:</span><span class="sc">\\</span><span class="st">s*${jube_pat_fp}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_wall_time</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"s"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Time:</span><span class="sc">\\</span><span class="st">s*${jube_pat_nfp}</span><span class="sc">\\</span><span class="st">s*${jube_pat_fp}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_core_perf</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"ns/day"</span><span class="kw">,</span><span class="at">  </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Performance:</span><span class="sc">\\</span><span class="st">s*${jube_pat_fp}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_wall_perf</span><span class="kw">,</span><span class="at"> </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> </span><span class="st">"hours/ns"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> </span><span class="st">"Performance:</span><span class="sc">\\</span><span class="st">s*${jube_pat_nfp}</span><span class="sc">\\</span><span class="st">s*${jube_pat_fp}"</span><span class="at"> </span><span class="kw">}</span></span>
+<span id="cb16-19"><a href="#cb16-19" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" tabindex="-1"></a><span class="fu">analyser</span><span class="kw">:</span></span>
+<span id="cb16-21"><a href="#cb16-21" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_analyser</span></span>
+<span id="cb16-22"><a href="#cb16-22" tabindex="-1"></a><span class="at">    </span><span class="fu">analyse</span><span class="kw">:</span></span>
+<span id="cb16-23"><a href="#cb16-23" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb16-24"><a href="#cb16-24" tabindex="-1"></a><span class="at">        </span><span class="fu">file</span><span class="kw">:</span></span>
+<span id="cb16-25"><a href="#cb16-25" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">use</span><span class="kw">:</span><span class="at"> cmake_configure_patterns</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> $gromacs_configure_log </span><span class="kw">}</span></span>
+<span id="cb16-26"><a href="#cb16-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb16-27"><a href="#cb16-27" tabindex="-1"></a><span class="at">        </span><span class="fu">file</span><span class="kw">:</span></span>
+<span id="cb16-28"><a href="#cb16-28" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">use</span><span class="kw">:</span><span class="at"> gromacs_output_patterns</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> $errlogfile </span><span class="kw">}</span></span>
+<span id="cb16-29"><a href="#cb16-29" tabindex="-1"></a><span class="fu">result</span><span class="kw">:</span></span>
+<span id="cb16-30"><a href="#cb16-30" tabindex="-1"></a><span class="at">  </span><span class="fu">use</span><span class="kw">:</span><span class="at"> gromacs_analyser</span></span>
+<span id="cb16-31"><a href="#cb16-31" tabindex="-1"></a><span class="at">  </span><span class="fu">table</span><span class="kw">:</span></span>
+<span id="cb16-32"><a href="#cb16-32" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_build</span></span>
+<span id="cb16-33"><a href="#cb16-33" tabindex="-1"></a><span class="at">      </span><span class="fu">style</span><span class="kw">:</span><span class="at"> pretty</span></span>
+<span id="cb16-34"><a href="#cb16-34" tabindex="-1"></a><span class="at">      </span><span class="fu">column</span><span class="kw">:</span></span>
+<span id="cb16-35"><a href="#cb16-35" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"compiler"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> cmake_cxx_compiler_id </span><span class="kw">}</span></span>
+<span id="cb16-36"><a href="#cb16-36" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"compiler version"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at">  cmake_cxx_compiler_version </span><span class="kw">}</span></span>
+<span id="cb16-37"><a href="#cb16-37" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> SIMD support"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> SIMD_</span><span class="kw">}</span></span>
+<span id="cb16-38"><a href="#cb16-38" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gromacs_run</span></span>
+<span id="cb16-39"><a href="#cb16-39" tabindex="-1"></a><span class="at">      </span><span class="fu">style</span><span class="kw">:</span><span class="at"> pretty</span></span>
+<span id="cb16-40"><a href="#cb16-40" tabindex="-1"></a><span class="at">      </span><span class="fu">column</span><span class="kw">:</span></span>
+<span id="cb16-41"><a href="#cb16-41" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"wp"</span><span class="kw">,</span><span class="at"> </span><span class="fu">_</span><span class="kw">:</span><span class="at"> jube_wp_id </span><span class="kw">}</span></span>
+<span id="cb16-42"><a href="#cb16-42" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_core_time</span></span>
+<span id="cb16-43"><a href="#cb16-43" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_wall_time</span></span>
+<span id="cb16-44"><a href="#cb16-44" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_core_perf</span></span>
+<span id="cb16-45"><a href="#cb16-45" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> gromacs_wall_perf</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -4421,9 +4457,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://mahermanns.github.io/jube-novice/instructor/aio.html",
   "identifier": "https://mahermanns.github.io/jube-novice/instructor/aio.html",
-  "dateCreated": "2025-06-24",
-  "dateModified": "2025-06-24",
-  "datePublished": "2025-06-24"
+  "dateCreated": "2025-06-27",
+  "dateModified": "2025-06-27",
+  "datePublished": "2025-06-27"
 }
 
   </script><script>
