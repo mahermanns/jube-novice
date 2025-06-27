@@ -106,8 +106,8 @@
       <pattern name="gromacs_num_threads" unit="s">Using ${jube_pat_int} OpenMP thread.*</pattern>
       <pattern name="gromacs_core_time" unit="s">Time:\s*${jube_pat_fp}</pattern>
       <pattern name="gromacs_wall_time" unit="s">Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
-      <pattern name="gromacs_core_perf" unit="ns/day">Time:\s*${jube_pat_fp}</pattern>
-      <pattern name="gromacs_wall_perf" unit="hours/ns">Time:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
+      <pattern name="gromacs_core_perf" unit="ns/day">Performance:\s*${jube_pat_fp}</pattern>
+      <pattern name="gromacs_wall_perf" unit="hours/ns">Performance:\s*${jube_pat_nfp}\s*${jube_pat_fp}</pattern>
     </patternset>
 
     <analyser name="gromacs_analyser">

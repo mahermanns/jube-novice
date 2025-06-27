@@ -105,8 +105,8 @@ patternset:
       - { name: gromacs_num_threads, unit: "s", _: "Using ${jube_pat_int} OpenMP thread.*" }
       - { name: gromacs_core_time, unit: "s", _: "Time:\\s*${jube_pat_fp}" }
       - { name: gromacs_wall_time, unit: "s", _: "Time:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
-      - { name: gromacs_core_perf, unit: "ns/day",  _: "Time:\\s*${jube_pat_fp}" }
-      - { name: gromacs_wall_perf, unit: "hours/ns", _: "Time:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
+      - { name: gromacs_core_perf, unit: "ns/day",  _: "Performance:\\s*${jube_pat_fp}" }
+      - { name: gromacs_wall_perf, unit: "hours/ns", _: "Performance:\\s*${jube_pat_nfp}\\s*${jube_pat_fp}" }
 
 analyser:
   - name: gromacs_analyser
